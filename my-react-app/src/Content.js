@@ -311,7 +311,7 @@ export const CONTACT_PAGE = {
   sub: "Tell us the occasion and the date. We'll tell you what we'd recommend.",
   formTitle: 'Book a shoot',
   formSub: "Fill this in and we'll get back to you.",
-  endpoint: '', // Express/Nodemailer ka URL daalo (POST, JSON). Khali ho to WhatsApp khulega.
+  endpoint: '/api/bookings',
   faqTitle: 'Before you write',
   faq: [
     { q: 'How early should I book?', a: "As early as you can, especially for wedding dates. Send us your date and we'll let you know if we're free." },
