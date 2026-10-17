@@ -1,0 +1,82 @@
+/* sab kuch .album-page ke andar scoped hai, global styles ko touch nahi karta.
+   Colours Scene3D ke palette se aate hain: --g1 / --g2 / --g3 (data-p ke hisaab se set hote hain).
+   P[0] #ff8a5c #ff5d8f #8b5cf6   P[1] #22b8e6 #4f7cff #9b6bff
+   P[2] #1fcf9e #1aa7e0 #6b7cff   P[3] #ffb020 #ff7a45 #f0467a
+   Fallback (agar Scene3D na chale) = P[0] orange → pink → purple. */
+.album-page{
+  --H:min(58vh,50vw);
+  --a1:var(--g1,#ff8a5c);--a2:var(--g2,#ff5d8f);--a3:var(--g3,#8b5cf6);
+  --ink:#2a1b12;--ivory:#f6ecda;
+  position:relative;isolation:isolate;min-height:100vh;overflow:hidden;padding:92px 5vw 28px;text-align:center;
+  color:var(--ivory);font-family:Inter,system-ui,sans-serif;
+  /* dark studio: near-black base + soft floor sheen under the book + fine grain */
+  background:
+    radial-gradient(ellipse 58% 15% at 50% 79%,rgba(255,255,255,.075),transparent 70%),
+    repeating-linear-gradient(0deg,rgba(255,255,255,.012) 0 1px,transparent 1px 3px),
+    linear-gradient(180deg,#07050c 0%,#0f0a17 45%,#150d1d 72%,#07050b 100%);
+}
+.album-page *{box-sizing:border-box}
+/* coloured light spill like the camera scene: palette colour 1 from the right, colour 3 from the left, colour 2 on the floor */
+.album-page::before{content:'';position:absolute;inset:-6%;z-index:0;pointer-events:none;opacity:.30;filter:blur(36px);
+  background:
+    radial-gradient(38% 48% at 14% 42%,var(--a3),transparent 70%),
+    radial-gradient(38% 48% at 86% 40%,var(--a1),transparent 70%),
+    radial-gradient(46% 34% at 50% 88%,var(--a2),transparent 72%)}
+.album-page::after{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse at 50% 50%,transparent 42%,rgba(0,0,0,.72) 100%)}
+.album-page[data-side="l"]{cursor:w-resize}
+.album-page[data-side="r"]{cursor:e-resize}
+.album-page .album-head{position:relative;z-index:1}
+.album-page .eyebrow{display:inline-flex;align-items:center;gap:14px;font-size:12px;letter-spacing:.42em;text-transform:uppercase;color:#d2c4e0}
+.album-page .eyebrow::before,.album-page .eyebrow::after{content:'';width:34px;height:1px;background:linear-gradient(90deg,transparent,var(--a1))}
+.album-page .eyebrow::after{transform:scaleX(-1)}
+.album-page .album-head h1{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(32px,5vw,58px);letter-spacing:.01em;margin:10px 0 8px;color:var(--ivory);text-shadow:0 2px 18px rgba(0,0,0,.55)}
+/* "Album" = full 3-colour palette gradient */
+.album-page .grad{background:linear-gradient(100deg,var(--a1),var(--a2) 55%,var(--a3));-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 2px 10px rgba(0,0,0,.45))}
+.album-page .rule{width:64px;height:2px;margin:0 auto 12px;border-radius:2px;background:linear-gradient(90deg,var(--a1),var(--a2),var(--a3))}
+.album-page .album-head p{color:#b9acc6;font-size:15px;letter-spacing:.02em;margin:0 0 18px}
+.album-page .stage{position:relative;z-index:1;display:grid;place-items:center;perspective:2600px;height:calc(var(--H)*1.12)}
+.album-page .tilt{transition:transform .25s ease-out}
+.album-page .slide{position:relative;transition:transform 1.3s cubic-bezier(.6,.05,.2,1)}
+.album-page .book{position:relative;width:calc(var(--H)*1.5);height:var(--H);font-size:calc(var(--H)/40);perspective:2400px;cursor:inherit;text-align:left}
+.album-page .shadow{position:absolute;left:50%;bottom:-5%;width:96%;height:10%;transform:translateX(-50%);background:radial-gradient(ellipse,rgba(0,0,0,.85),transparent 70%);filter:blur(10px)}
+.album-page .leaf,.album-page .base{position:absolute;top:0;left:50%;width:50%;height:100%}
+.album-page .base{background:#1c1220;border-radius:0 .5em .5em 0;box-shadow:0 0 0 .2em #2d1d33}
+.album-page .leaf{transform-origin:left center;transform-style:preserve-3d;transition:transform 1.3s cubic-bezier(.6,.05,.2,1)}
+.album-page .leaf.f{transform:rotateY(-180deg)}
+.album-page .face{position:absolute;inset:0;overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:0 .4em .4em 0;font-family:'Playfair Display',Georgia,serif;background:radial-gradient(circle at 30% 20%,rgba(255,255,255,.4),transparent 60%),linear-gradient(#f1e6cf,#e4d3b0)}
+.album-page .face.b{transform:rotateY(180deg);border-radius:.4em 0 0 .4em}
+.album-page .face::after{content:'';position:absolute;inset:0;z-index:4;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,.32),transparent 14%)}
+.album-page .face.b::after{background:linear-gradient(270deg,rgba(0,0,0,.32),transparent 14%)}
+.album-page .face::before{content:'';position:absolute;inset:0;z-index:5;pointer-events:none;opacity:0;background:linear-gradient(90deg,rgba(0,0,0,.55),transparent 65%)}
+.album-page .face.b::before{background:linear-gradient(270deg,rgba(0,0,0,.55),transparent 65%)}
+.album-page .fl .face::before{animation:album-sh 1.3s ease-in-out}
+@keyframes album-sh{50%{opacity:1}}
+.album-page .pg{position:absolute;inset:0;padding:3em 2.6em;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.4em;color:var(--ink);text-align:center}
+.album-page .pg h2{margin:0;font-size:2.2em;letter-spacing:.05em}
+.album-page .pg p{margin:0;font-size:1.1em;line-height:1.6;opacity:.8}
+.album-page .pg blockquote{margin:0;font-size:1.8em;line-height:1.5;font-style:italic}
+.album-page .pn{position:absolute;bottom:1.3em;z-index:3;font-style:normal;font-size:.95em;color:#6b5238;opacity:.7}
+.album-page .pn.r{right:2.4em}
+.album-page .pn.l{left:2.4em}
+.album-page .grid{display:grid;grid-template-columns:1fr 1fr;gap:1.6em}
+.album-page .ph{position:relative;background:#fbf8f1;padding:.55em .55em 2em;transform:rotate(var(--r,0deg));box-shadow:0 .3em .9em rgba(40,20,10,.4)}
+.album-page .ph::before{content:'';position:absolute;top:-.8em;left:50%;width:5em;height:1.7em;background:rgba(240,215,150,.65);transform:translateX(-50%) rotate(-3deg);z-index:2}
+.album-page .ph img{width:100%;height:100%;object-fit:cover;display:block}
+.album-page .ph i{position:absolute;left:0;right:0;bottom:.3em;text-align:center;font:normal 1.7em 'Caveat',cursive;color:#4a3626}
+/* cover: dark plum leather with palette-coloured foil */
+.album-page .face.cv{background:radial-gradient(circle at 30% 25%,#3b2230,#1a0f18 70%)}
+.album-page .cv .pg{inset:1.6em;padding:2em;border:.15em solid var(--a1);color:var(--a1);justify-content:space-around}
+.album-page .cv h1{margin:0;font-size:3.6em;line-height:1.05;letter-spacing:.12em;text-transform:uppercase;background:linear-gradient(100deg,var(--a1),var(--a2) 60%,var(--a3));-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 .05em .1em #000)}
+.album-page .pg small{letter-spacing:.35em;font-size:.95em}
+.album-page .sun{width:9em;height:9em;border-radius:50%;background:radial-gradient(circle at 40% 35%,#fff1c9,var(--a1) 55%,var(--a2));box-shadow:0 0 3em var(--a1)}
+.album-page .sun.sm{width:5em;height:5em}
+.album-page .ui{position:relative;z-index:2;display:flex;gap:1em;align-items:center;justify-content:center;margin-top:10px}
+.album-page .ui button{width:42px;height:42px;border-radius:50%;border:1px solid rgba(246,236,218,.28);background:rgba(0,0,0,.34);color:var(--ivory);font-size:20px;cursor:pointer;transition:.2s}
+.album-page .ui button:hover:not(:disabled){background:linear-gradient(135deg,var(--a1),var(--a3));border-color:transparent;color:#fff}
+.album-page .ui button:disabled{opacity:.3;cursor:default}
+.album-page .lb{min-width:130px;font-size:12px;letter-spacing:.25em;text-transform:uppercase;color:#d2c4e0}
+.album-page .hint{position:relative;z-index:2;font-size:13px;color:#8d7fa0;margin:10px 0 0}
+.album-page .dust{position:absolute;inset:0;z-index:1;pointer-events:none}
+.album-page .dust span{position:absolute;width:3px;height:3px;border-radius:50%;background:var(--a1);opacity:0;animation:album-dr var(--d) linear infinite}
+@keyframes album-dr{0%{transform:translate(0,0);opacity:0}15%{opacity:.7}100%{transform:translate(var(--x),-40vh);opacity:0}}
+@media(max-width:600px){.album-page{--H:min(46vh,58vw)}}
