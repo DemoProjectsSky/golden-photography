@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import * as C from '../Content.js'
-import { loadThree, startScene } from './Servicesscene.js'
+import { loadThree, startScene } from './ServiceSscene.js'
 
 // har section ka rang-palette (sirf 3D lights ke liye, boxes/text solid rahenge)
 const PALETTE = [
