@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import * as C from '../Content.js'
-import { loadThree } from './ServiceSscene.js'
+import { loadThree } from "./ServicesScene.js";
 
 // Default contact page content
 const DEFAULT_P = {
