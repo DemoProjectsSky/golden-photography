@@ -1,4 +1,4 @@
-import { DEFAULT_PACKAGES } from '../content.js'
+import { DEFAULT_PACKAGES } from '../Content.js'
 
 const tilt = e => {
   const el = e.currentTarget, r = el.getBoundingClientRect()
