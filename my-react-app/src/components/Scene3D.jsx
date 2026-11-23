@@ -1,20 +1,13 @@
 import { useEffect, useRef } from 'react'
 import * as THREE from 'three'
+import { variantSrc, SHOWCASE } from '../imageUtils.js'
 import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment.js'
 
 // true karoge to camera body gradient colors me rangin ho jayegi (real-look ke liye false rakho)
 const COLORED_BODY = false
 
 // camera ke around float hone wali real images (public/images/ me)
-const IMGS = [
-  '/images/goldenphoto1.jpg',
-  '/images/goldenphoto2.jpg',
-  '/images/goldenphoto3.jpg',
-  '/images/goldenphoto4.jpg',
-  '/images/goldenphoto5.jpg',
-  '/images/goldenphoto6.jpeg',
-  '/images/goldenphoto7.jpg',
-]
+const IMGS = SHOWCASE.map(src => variantSrc(src, 600, 'webp'))
 
 export default function Scene3D() {
   const ref = useRef(null)
@@ -29,7 +22,7 @@ try{
 var R=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true});
 R.setPixelRatio(Math.min(devicePixelRatio,2));
 R.toneMapping=THREE.ACESFilmicToneMapping;R.toneMappingExposure=1.05;
-if('outputColorSpace' in R)R.outputColorSpace=THREE.SRGBColorSpace;else R.outputEncoding=THREE.sRGBEncoding;
+R.outputColorSpace=THREE.SRGBColorSpace;
 var S=new THREE.Scene(),C=new THREE.PerspectiveCamera(45,1,.1,100);C.position.z=7;
 var U={t:{value:0},a:{value:new THREE.Color(P[0][0])},b:{value:new THREE.Color(P[0][1])},c:{value:new THREE.Color(P[0][2])},amp:{value:.35}};
 
@@ -39,7 +32,7 @@ var key=new THREE.DirectionalLight(0xffffff,.8);key.position.set(3,5,6);S.add(ke
 var L1=new THREE.DirectionalLight(0xff6a3d,1.3),L2=new THREE.DirectionalLight(0x7b2ff7,1.3);L1.position.set(6,2,4);L2.position.set(-6,-1,4);S.add(L1,L2);
 var PI2=Math.PI/2;
 var maxAn=R.capabilities.getMaxAnisotropy(),tl=new THREE.TextureLoader(),texList=[];
-function sRGB(t){if('colorSpace' in t)t.colorSpace=THREE.SRGBColorSpace;else t.encoding=THREE.sRGBEncoding;return t}
+function sRGB(t){t.colorSpace=THREE.SRGBColorSpace;return t}
 // image load + object-fit:cover crop for a given aspect ratio
 function cover(url,asp){var t=tl.load(url,function(t){var ia=t.image.width/t.image.height;if(ia>asp){t.repeat.x=asp/ia;t.offset.x=(1-t.repeat.x)/2}else{t.repeat.y=ia/asp;t.offset.y=(1-t.repeat.y)/2}});sRGB(t);t.anisotropy=maxAn;texList.push(t);return t}
 // ---- procedural textures (leather grip, knurled rings, mode dial)
@@ -151,7 +144,7 @@ var c1=new THREE.Color(),c3=new THREE.Color();
 var mx=0,my=0,sp=0,cols=[new THREE.Color(),new THREE.Color(),new THREE.Color()],ci=-1,root=document.documentElement;
 var onMove=function(e){mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5};addEventListener('mousemove',onMove);
 function rs(){R.setSize(innerWidth,innerHeight,false);C.aspect=innerWidth/innerHeight;C.updateProjectionMatrix()}rs();addEventListener('resize',rs);
-var clk=new THREE.Clock();
+var clk={t0:performance.now(),last:performance.now(),getDelta(){var n=performance.now(),d=(n-this.last)/1000;this.last=n;return d},getElapsedTime(){return (performance.now()-this.t0)/1000}};
 (function loop(){raf=requestAnimationFrame(loop);var t=clk.getElapsedTime();U.t.value=t*.7;
 var h=document.documentElement.scrollHeight-innerHeight,sy=h>0?scrollY/h:0;sp+=(sy-sp)*.07;
 // palette by section in view

@@ -1,54 +1,42 @@
-// Photos ko client/public/images/ folder me isi naam se rakho (jpg). Text/logo/watermark wali photo mat lagao.
+// All photos live in assets-src/images (originals, not deployed) and are converted to
+// responsive AVIF/WebP variants by `npm run images` -> public/images/optimized + src/image-manifest.json.
+// Keep alt text descriptive of what is actually in each photo.
 const p = f => `/images/${f}`
+
 export const IMG = {
-  
-  hero: { src: p('hero.jpg'), alt: 'Couple sharing a quiet moment during golden hour at their wedding' },
-about: {
-  src: p('aboutgolden.avif'),
-  alt: 'Photographer capturing beautiful moments during a wedding session'
-},
- albums: [
-  {
-    src: p('marraiagefolden.jpeg'),
-    alt: 'Bride and groom exchanging vows during a wedding ceremony'
-  },
-  {
-    src: p('preweddinggolden.jpeg'),
-    alt: 'Couple laughing together during a pre-wedding shoot outdoors'
-  },
-  {
-    src: p('engagementgolden.jpg'),
-    alt: 'Couple showing their engagement rings close together'
-  },
-  {
-    src: p('haldi.avif'),
-    alt: 'Guests celebrating together at an evening event'
-  },
-],
-  quote: { src: p('quote.jpg'), alt: 'Wide cinematic view of a couple embracing at their wedding' },
-  why: { src: p('whyusgolden.JPG'), alt: 'Photographer guiding a couple during a relaxed portrait session' },
+  // Hero is a faint decorative backdrop behind the headline, so it carries an empty alt.
+  hero: { src: p('goldenphoto5.jpg'), alt: '' },
+  about: { src: p('aboutgolden.avif'), alt: 'A sunflower glowing against the evening sun' },
+  albums: [
+    { src: p('marraiagefolden.jpeg'), alt: 'Bride and groom performing a wedding ritual together' },
+    { src: p('preweddinggolden.jpeg'), alt: 'Couple embracing in a grassy field during a pre-wedding shoot' },
+    { src: p('engagementgolden.jpg'), alt: 'Couple holding their rings up close together' },
+    { src: p('haldi.avif'), alt: 'Women in yellow celebrating at a haldi ceremony' },
+  ],
+  quote: { src: p('goldenphoto7.jpg'), alt: 'Mountain lake at dusk with the peaks reflected in still water' },
+  why: { src: p('whyusgolden.JPG'), alt: 'Black and white portrait of a woman standing in a dim doorway' },
   gallery: [
-    { src: p('bride.JPG'), alt: 'Portrait of a bride in soft natural light', r: 'r34' },
-    { src: p('bridegolden.jpg'), alt: 'Portrait of a groom adjusting his sleeve', r: 'r11' },
-    { src: p('candid.jpg'), alt: 'Candid moment of a couple laughing together', r: 'r43' },
-    { src: p('cermony.jpg'), alt: 'Wedding ceremony with guests watching', r: 'r11' },
-    { src: p('details.jpg'), alt: 'Wedding details including flowers and jewellery', r: 'r34' },
-    { src: p('rings.jpg'), alt: 'Wedding rings resting on a bouquet', r: 'r43' },
-    { src: p('walking.jpg'), alt: 'Couple walking hand in hand along a path', r: 'r34' },
-    { src: p('family.jpg'), alt: 'Family celebrating together at a wedding', r: 'r11' },
-    { src: p('emotion.jpg'), alt: 'Emotional candid moment between a bride and her father', r: 'r45' },
+    { src: p('bride.JPG'), alt: 'Smiling bride in jewellery resting her head on her hand', r: 'r34' },
+    { src: p('bridegolden.jpg'), alt: 'Groom in a white sherwani and red stole walking outdoors', r: 'r11' },
+    { src: p('candid.jpg'), alt: 'Couple choosing bangles at a market stall', r: 'r43' },
+    { src: p('cermony.jpg'), alt: 'Bride and groom embracing as petals fall around them', r: 'r11' },
+    { src: p('details.jpg'), alt: 'Woman in a yellow outfit and sunglasses blowing a kiss', r: 'r34' },
+    { src: p('rings.jpg'), alt: 'Couple showing off their rings and henna-decorated hands', r: 'r43' },
+    { src: p('walking.jpg'), alt: 'Older couple sharing an umbrella on a rainy street', r: 'r34' },
+    { src: p('family.jpg'), alt: 'Family of three posing together against a brick wall', r: 'r11' },
+    { src: p('emotion.jpg'), alt: 'Boy sharing his food with a street dog', r: 'r45' },
   ],
   social: [
-    { src: p('candid.jpg'), alt: 'Wedding candid of guests laughing' },
-    { src: p('couple.jpeg'), alt: 'Couple portrait in warm evening light' },
-    { src: p('bridedetails.JPG'), alt: 'Close up of bridal details' },
-    { src: p('bridegolden.jpg'), alt: 'Groom portrait outdoors' },
-    { src: p('cermony.jpg'), alt: 'Moment from a wedding ceremony' },
-    { src: p('cinematic.jpg'), alt: 'Cinematic shot of a couple at sunset' },
+    { src: p('couple.jpeg'), alt: 'Couple embracing in a warm evening portrait' },
+    { src: p('cinematic.jpg'), alt: 'Street food vendor cooking over a flaming pan' },
+    { src: p('preweddinggolden.jpeg'), alt: 'Couple in a pre-wedding portrait on a grassy hillside' },
+    { src: p('engagementgolden.jpg'), alt: 'Close-up of an engagement ring exchange' },
+    { src: p('haldi.avif'), alt: 'Haldi ceremony with guests in bright yellow' },
+    { src: p('marraiagefolden.jpeg'), alt: 'Wedding ritual with the couple seated together' },
   ],
-  cta: { src: p('cta.jpg'), alt: 'Emotional cinematic photograph of a couple at their wedding' },
+  cta: { src: p('cta.jpg'), alt: 'Wooden jetty stretching over a lake towards a colourful sunset' },
   aboutPage: {
-    story: { src: p('about-story.jpg'), alt: 'Photographer quietly capturing a candid moment at a celebration' },
-    wide: { src: p('quote.jpg'), alt: 'Wide landscape view of a couple standing together at golden hour' },
+    story: { src: p('candid.jpg'), alt: 'A candid moment between a couple at a bangle stall' },
+    wide: { src: p('goldenphoto2.jpg'), alt: 'Meadow of yellow flowers under a golden evening sky' },
   },
 }

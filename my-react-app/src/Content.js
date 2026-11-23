@@ -68,7 +68,7 @@ export const SOCIAL = {
   title: 'FOLLOW THE JOURNEY',
   sub: 'Behind the scenes, recent stories, and our latest work.',
   btn: 'Follow on Instagram',
-  instagram: 'https://www.instagram.com/g_o_l_u__09?srtk=MWlyeWU3aHhocWppZA%3D%3D', // apna real Instagram link yahan daalo
+  instagram: 'https://www.instagram.com/g_o_l_u__09', // apna real Instagram link yahan daalo
 }
 export const CTA = {
   title: "LET'S CREATE SOMETHING BEAUTIFUL",
@@ -79,7 +79,7 @@ export const FOOTER = {
   phone: '+91 85540 31167 / +91 72195 65332',
   email: 'abhishekbagade5454@gmail.com',
   location: 'Jawaharnagar Petrol Pump Thana, Bhandara',
-  social: [['Instagram', 'https://www.instagram.com/g_o_l_u__09?srtk=MWlyeWU3aHhocWppZA%3D%3D']],
+  social: [['Instagram', 'https://www.instagram.com/g_o_l_u__09']],
 }
 
 // Packages.jsx / Booking.jsx ke liye (unchanged)
@@ -100,7 +100,7 @@ export const ABOUT_PAGE = {
     label: 'OUR STORY',
     title: 'It Started With a Camera and a ~Feeling.',
     p1: 'I am a passionate photographer who believes that every picture carries a unique story. My goal is to freeze moments that speak, evoke emotions, and stay timeless for years. With years of experience in portrait, wedding, product, and travel photography — I bring a blend of creativity, precision, and emotion into every shot.',
-    p2: "Golden Shoot Photography is not just a brand — it's a vision to create art that feels alive. I focus on natural lighting, modern composition techniques, and soulful editing to create visuals that truly stand out."
+    p2: "Golden Photography is not just a brand — it's a vision to create art that feels alive. I focus on natural lighting, modern composition techniques, and soulful editing to create visuals that truly stand out."
   },
   stats: {
     sample: true, // sample figures — apne real numbers daalke false kar do
@@ -138,12 +138,15 @@ export const ABOUT_PAGE = {
 // ===== Contact (Call / WhatsApp / Contact page) =====
 export const CONTACT = {
   call: '+918554031167',      // main number: Services page ka Call button yahi use karta hai
-  whatsapp: '918554031167',   // main WhatsApp number: bina + ke, country code ke saath
+  whatsapp: '917066500791',   // main WhatsApp number (+91 70665 00791): bina + ke, country code ke saath
+  whatsappDisplay: '+91 70665 00791',
+  instagram: 'https://www.instagram.com/g_o_l_u__09',
   waText: "Hi, I'd like to know about your photography services.",
   // Contact page par dono number alag-alag cards me dikhte hain (order badalna ho to yahin badlo)
   numbers: [
     { display: '+91 85540 31167', call: '+918554031167' },
     { display: '+91 72195 65332', call: '+917219565332' },
+    { display: '+91 70665 00791', call: '+917066500791' },
   ],
 }
 

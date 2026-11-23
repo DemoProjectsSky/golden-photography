@@ -9,6 +9,7 @@ const empty = {
   shootType: SHOOT_TYPES[0],
   date: '',
   message: '',
+  website: '', // honeypot: hidden from people, bots fill it
 };
 
 export default function Booking() {
@@ -91,8 +92,19 @@ export default function Booking() {
         </h2>
 
         <form className="form" onSubmit={submit}>
+          <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, overflow: 'hidden' }}>
+            <label>
+              Leave this field empty
+              <input tabIndex={-1} autoComplete="off" name="website" value={f.website} onChange={set('website')} />
+            </label>
+          </div>
+
           <input
             required
+            name="name"
+            aria-label="Your name"
+            autoComplete="name"
+            maxLength={80}
             placeholder="Your name"
             value={f.name}
             onChange={set('name')}
@@ -101,6 +113,10 @@ export default function Booking() {
           <input
             required
             type="email"
+            name="email"
+            aria-label="Email address"
+            autoComplete="email"
+            maxLength={120}
             placeholder="Email"
             value={f.email}
             onChange={set('email')}
@@ -109,6 +125,10 @@ export default function Booking() {
           <input
             required
             type="tel"
+            name="phone"
+            aria-label="Phone number"
+            autoComplete="tel"
+            maxLength={20}
             placeholder="Phone number"
             value={f.phone}
             onChange={set('phone')}
@@ -116,6 +136,7 @@ export default function Booking() {
 
           <select
             required
+            aria-label="Type of shoot"
             value={f.shootType}
             onChange={set('shootType')}
           >
@@ -129,18 +150,21 @@ export default function Booking() {
           <input
             className="full"
             type="date"
+            aria-label="Preferred date"
             value={f.date}
             onChange={set('date')}
           />
 
           <textarea
             className="full"
+            aria-label="Tell us about your shoot"
+            maxLength={2000}
             placeholder="Tell us about your shoot (location, concept, guests...)"
             value={f.message}
             onChange={set('message')}
           />
 
-          <button className="pill full" disabled={state.busy}>
+          <button type="submit" className="pill full" disabled={state.busy}>
             {state.busy ? 'Sending...' : 'Send enquiry →'}
           </button>
         </form>

@@ -1,0 +1,2484 @@
+{
+  "/images/aboutgolden.avif": {
+    "width": 3168,
+    "height": 2048,
+    "avif": [
+      {
+        "src": "/images/optimized/aboutgolden-300.avif",
+        "width": 300,
+        "height": 194
+      },
+      {
+        "src": "/images/optimized/aboutgolden-600.avif",
+        "width": 600,
+        "height": 388
+      },
+      {
+        "src": "/images/optimized/aboutgolden-1200.avif",
+        "width": 1200,
+        "height": 776
+      },
+      {
+        "src": "/images/optimized/aboutgolden-1920.avif",
+        "width": 1920,
+        "height": 1241
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/aboutgolden-300.webp",
+        "width": 300,
+        "height": 194
+      },
+      {
+        "src": "/images/optimized/aboutgolden-600.webp",
+        "width": 600,
+        "height": 388
+      },
+      {
+        "src": "/images/optimized/aboutgolden-1200.webp",
+        "width": 1200,
+        "height": 776
+      },
+      {
+        "src": "/images/optimized/aboutgolden-1920.webp",
+        "width": 1920,
+        "height": 1241
+      }
+    ]
+  },
+  "/images/bride.JPG": {
+    "width": 7952,
+    "height": 5304,
+    "avif": [
+      {
+        "src": "/images/optimized/bride-300.avif",
+        "width": 300,
+        "height": 200
+      },
+      {
+        "src": "/images/optimized/bride-600.avif",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/optimized/bride-1200.avif",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/optimized/bride-1920.avif",
+        "width": 1920,
+        "height": 1281
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/bride-300.webp",
+        "width": 300,
+        "height": 200
+      },
+      {
+        "src": "/images/optimized/bride-600.webp",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/optimized/bride-1200.webp",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/optimized/bride-1920.webp",
+        "width": 1920,
+        "height": 1281
+      }
+    ]
+  },
+  "/images/bridedetails.JPG": {
+    "width": 7952,
+    "height": 5304,
+    "avif": [
+      {
+        "src": "/images/optimized/bridedetails-300.avif",
+        "width": 300,
+        "height": 200
+      },
+      {
+        "src": "/images/optimized/bridedetails-600.avif",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/optimized/bridedetails-1200.avif",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/optimized/bridedetails-1920.avif",
+        "width": 1920,
+        "height": 1281
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/bridedetails-300.webp",
+        "width": 300,
+        "height": 200
+      },
+      {
+        "src": "/images/optimized/bridedetails-600.webp",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/optimized/bridedetails-1200.webp",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/optimized/bridedetails-1920.webp",
+        "width": 1920,
+        "height": 1281
+      }
+    ]
+  },
+  "/images/bridegolden.jpg": {
+    "width": 1000,
+    "height": 1500,
+    "avif": [
+      {
+        "src": "/images/optimized/bridegolden-300.avif",
+        "width": 300,
+        "height": 450
+      },
+      {
+        "src": "/images/optimized/bridegolden-600.avif",
+        "width": 600,
+        "height": 900
+      },
+      {
+        "src": "/images/optimized/bridegolden-1000.avif",
+        "width": 1000,
+        "height": 1500
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/bridegolden-300.webp",
+        "width": 300,
+        "height": 450
+      },
+      {
+        "src": "/images/optimized/bridegolden-600.webp",
+        "width": 600,
+        "height": 900
+      },
+      {
+        "src": "/images/optimized/bridegolden-1000.webp",
+        "width": 1000,
+        "height": 1500
+      }
+    ]
+  },
+  "/images/candid.jpg": {
+    "width": 1200,
+    "height": 1500,
+    "avif": [
+      {
+        "src": "/images/optimized/candid-300.avif",
+        "width": 300,
+        "height": 375
+      },
+      {
+        "src": "/images/optimized/candid-600.avif",
+        "width": 600,
+        "height": 750
+      },
+      {
+        "src": "/images/optimized/candid-1200.avif",
+        "width": 1200,
+        "height": 1500
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/candid-300.webp",
+        "width": 300,
+        "height": 375
+      },
+      {
+        "src": "/images/optimized/candid-600.webp",
+        "width": 600,
+        "height": 750
+      },
+      {
+        "src": "/images/optimized/candid-1200.webp",
+        "width": 1200,
+        "height": 1500
+      }
+    ]
+  },
+  "/images/cermony.jpg": {
+    "width": 736,
+    "height": 1100,
+    "avif": [
+      {
+        "src": "/images/optimized/cermony-300.avif",
+        "width": 300,
+        "height": 448
+      },
+      {
+        "src": "/images/optimized/cermony-600.avif",
+        "width": 600,
+        "height": 897
+      },
+      {
+        "src": "/images/optimized/cermony-736.avif",
+        "width": 736,
+        "height": 1100
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/cermony-300.webp",
+        "width": 300,
+        "height": 448
+      },
+      {
+        "src": "/images/optimized/cermony-600.webp",
+        "width": 600,
+        "height": 897
+      },
+      {
+        "src": "/images/optimized/cermony-736.webp",
+        "width": 736,
+        "height": 1100
+      }
+    ]
+  },
+  "/images/cinematic.jpg": {
+    "width": 1000,
+    "height": 1396,
+    "avif": [
+      {
+        "src": "/images/optimized/cinematic-300.avif",
+        "width": 300,
+        "height": 419
+      },
+      {
+        "src": "/images/optimized/cinematic-600.avif",
+        "width": 600,
+        "height": 838
+      },
+      {
+        "src": "/images/optimized/cinematic-1000.avif",
+        "width": 1000,
+        "height": 1396
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/cinematic-300.webp",
+        "width": 300,
+        "height": 419
+      },
+      {
+        "src": "/images/optimized/cinematic-600.webp",
+        "width": 600,
+        "height": 838
+      },
+      {
+        "src": "/images/optimized/cinematic-1000.webp",
+        "width": 1000,
+        "height": 1396
+      }
+    ]
+  },
+  "/images/couple.jpeg": {
+    "width": 1072,
+    "height": 1600,
+    "avif": [
+      {
+        "src": "/images/optimized/couple-300.avif",
+        "width": 300,
+        "height": 448
+      },
+      {
+        "src": "/images/optimized/couple-600.avif",
+        "width": 600,
+        "height": 896
+      },
+      {
+        "src": "/images/optimized/couple-1072.avif",
+        "width": 1072,
+        "height": 1600
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/couple-300.webp",
+        "width": 300,
+        "height": 448
+      },
+      {
+        "src": "/images/optimized/couple-600.webp",
+        "width": 600,
+        "height": 896
+      },
+      {
+        "src": "/images/optimized/couple-1072.webp",
+        "width": 1072,
+        "height": 1600
+      }
+    ]
+  },
+  "/images/cta.jpg": {
+    "width": 2560,
+    "height": 1600,
+    "avif": [
+      {
+        "src": "/images/optimized/cta-300.avif",
+        "width": 300,
+        "height": 188
+      },
+      {
+        "src": "/images/optimized/cta-600.avif",
+        "width": 600,
+        "height": 375
+      },
+      {
+        "src": "/images/optimized/cta-1200.avif",
+        "width": 1200,
+        "height": 750
+      },
+      {
+        "src": "/images/optimized/cta-1920.avif",
+        "width": 1920,
+        "height": 1200
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/cta-300.webp",
+        "width": 300,
+        "height": 188
+      },
+      {
+        "src": "/images/optimized/cta-600.webp",
+        "width": 600,
+        "height": 375
+      },
+      {
+        "src": "/images/optimized/cta-1200.webp",
+        "width": 1200,
+        "height": 750
+      },
+      {
+        "src": "/images/optimized/cta-1920.webp",
+        "width": 1920,
+        "height": 1200
+      }
+    ]
+  },
+  "/images/details.jpg": {
+    "width": 768,
+    "height": 1408,
+    "avif": [
+      {
+        "src": "/images/optimized/details-300.avif",
+        "width": 300,
+        "height": 550
+      },
+      {
+        "src": "/images/optimized/details-600.avif",
+        "width": 600,
+        "height": 1100
+      },
+      {
+        "src": "/images/optimized/details-768.avif",
+        "width": 768,
+        "height": 1408
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/details-300.webp",
+        "width": 300,
+        "height": 550
+      },
+      {
+        "src": "/images/optimized/details-600.webp",
+        "width": 600,
+        "height": 1100
+      },
+      {
+        "src": "/images/optimized/details-768.webp",
+        "width": 768,
+        "height": 1408
+      }
+    ]
+  },
+  "/images/emotion.jpg": {
+    "width": 349,
+    "height": 500,
+    "avif": [
+      {
+        "src": "/images/optimized/emotion-300.avif",
+        "width": 300,
+        "height": 430
+      },
+      {
+        "src": "/images/optimized/emotion-349.avif",
+        "width": 349,
+        "height": 500
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/emotion-300.webp",
+        "width": 300,
+        "height": 430
+      },
+      {
+        "src": "/images/optimized/emotion-349.webp",
+        "width": 349,
+        "height": 500
+      }
+    ]
+  },
+  "/images/engagementgolden.jpg": {
+    "width": 1080,
+    "height": 1349,
+    "avif": [
+      {
+        "src": "/images/optimized/engagementgolden-300.avif",
+        "width": 300,
+        "height": 375
+      },
+      {
+        "src": "/images/optimized/engagementgolden-600.avif",
+        "width": 600,
+        "height": 749
+      },
+      {
+        "src": "/images/optimized/engagementgolden-1080.avif",
+        "width": 1080,
+        "height": 1349
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/engagementgolden-300.webp",
+        "width": 300,
+        "height": 375
+      },
+      {
+        "src": "/images/optimized/engagementgolden-600.webp",
+        "width": 600,
+        "height": 749
+      },
+      {
+        "src": "/images/optimized/engagementgolden-1080.webp",
+        "width": 1080,
+        "height": 1349
+      }
+    ]
+  },
+  "/images/family.jpg": {
+    "width": 736,
+    "height": 1308,
+    "avif": [
+      {
+        "src": "/images/optimized/family-300.avif",
+        "width": 300,
+        "height": 533
+      },
+      {
+        "src": "/images/optimized/family-600.avif",
+        "width": 600,
+        "height": 1066
+      },
+      {
+        "src": "/images/optimized/family-736.avif",
+        "width": 736,
+        "height": 1308
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/family-300.webp",
+        "width": 300,
+        "height": 533
+      },
+      {
+        "src": "/images/optimized/family-600.webp",
+        "width": 600,
+        "height": 1066
+      },
+      {
+        "src": "/images/optimized/family-736.webp",
+        "width": 736,
+        "height": 1308
+      }
+    ]
+  },
+  "/images/goldenphoto1.jpg": {
+    "width": 3314,
+    "height": 2610,
+    "avif": [
+      {
+        "src": "/images/optimized/goldenphoto1-300.avif",
+        "width": 300,
+        "height": 236
+      },
+      {
+        "src": "/images/optimized/goldenphoto1-600.avif",
+        "width": 600,
+        "height": 473
+      },
+      {
+        "src": "/images/optimized/goldenphoto1-1200.avif",
+        "width": 1200,
+        "height": 945
+      },
+      {
+        "src": "/images/optimized/goldenphoto1-1920.avif",
+        "width": 1920,
+        "height": 1512
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/goldenphoto1-300.webp",
+        "width": 300,
+        "height": 236
+      },
+      {
+        "src": "/images/optimized/goldenphoto1-600.webp",
+        "width": 600,
+        "height": 473
+      },
+      {
+        "src": "/images/optimized/goldenphoto1-1200.webp",
+        "width": 1200,
+        "height": 945
+      },
+      {
+        "src": "/images/optimized/goldenphoto1-1920.webp",
+        "width": 1920,
+        "height": 1512
+      }
+    ]
+  },
+  "/images/goldenphoto2.jpg": {
+    "width": 1920,
+    "height": 1305,
+    "avif": [
+      {
+        "src": "/images/optimized/goldenphoto2-300.avif",
+        "width": 300,
+        "height": 204
+      },
+      {
+        "src": "/images/optimized/goldenphoto2-600.avif",
+        "width": 600,
+        "height": 408
+      },
+      {
+        "src": "/images/optimized/goldenphoto2-1200.avif",
+        "width": 1200,
+        "height": 816
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/goldenphoto2-300.webp",
+        "width": 300,
+        "height": 204
+      },
+      {
+        "src": "/images/optimized/goldenphoto2-600.webp",
+        "width": 600,
+        "height": 408
+      },
+      {
+        "src": "/images/optimized/goldenphoto2-1200.webp",
+        "width": 1200,
+        "height": 816
+      }
+    ]
+  },
+  "/images/goldenphoto3.jpg": {
+    "width": 5166,
+    "height": 3874,
+    "avif": [
+      {
+        "src": "/images/optimized/goldenphoto3-300.avif",
+        "width": 300,
+        "height": 225
+      },
+      {
+        "src": "/images/optimized/goldenphoto3-600.avif",
+        "width": 600,
+        "height": 450
+      },
+      {
+        "src": "/images/optimized/goldenphoto3-1200.avif",
+        "width": 1200,
+        "height": 900
+      },
+      {
+        "src": "/images/optimized/goldenphoto3-1920.avif",
+        "width": 1920,
+        "height": 1440
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/goldenphoto3-300.webp",
+        "width": 300,
+        "height": 225
+      },
+      {
+        "src": "/images/optimized/goldenphoto3-600.webp",
+        "width": 600,
+        "height": 450
+      },
+      {
+        "src": "/images/optimized/goldenphoto3-1200.webp",
+        "width": 1200,
+        "height": 900
+      },
+      {
+        "src": "/images/optimized/goldenphoto3-1920.webp",
+        "width": 1920,
+        "height": 1440
+      }
+    ]
+  },
+  "/images/goldenphoto4.jpg": {
+    "width": 1080,
+    "height": 1920,
+    "avif": [
+      {
+        "src": "/images/optimized/goldenphoto4-300.avif",
+        "width": 300,
+        "height": 533
+      },
+      {
+        "src": "/images/optimized/goldenphoto4-600.avif",
+        "width": 600,
+        "height": 1067
+      },
+      {
+        "src": "/images/optimized/goldenphoto4-1080.avif",
+        "width": 1080,
+        "height": 1920
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/goldenphoto4-300.webp",
+        "width": 300,
+        "height": 533
+      },
+      {
+        "src": "/images/optimized/goldenphoto4-600.webp",
+        "width": 600,
+        "height": 1067
+      },
+      {
+        "src": "/images/optimized/goldenphoto4-1080.webp",
+        "width": 1080,
+        "height": 1920
+      }
+    ]
+  },
+  "/images/goldenphoto5.jpg": {
+    "width": 2560,
+    "height": 1707,
+    "avif": [
+      {
+        "src": "/images/optimized/goldenphoto5-300.avif",
+        "width": 300,
+        "height": 200
+      },
+      {
+        "src": "/images/optimized/goldenphoto5-600.avif",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/optimized/goldenphoto5-1200.avif",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/optimized/goldenphoto5-1920.avif",
+        "width": 1920,
+        "height": 1280
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/goldenphoto5-300.webp",
+        "width": 300,
+        "height": 200
+      },
+      {
+        "src": "/images/optimized/goldenphoto5-600.webp",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/optimized/goldenphoto5-1200.webp",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/optimized/goldenphoto5-1920.webp",
+        "width": 1920,
+        "height": 1280
+      }
+    ]
+  },
+  "/images/goldenphoto6.jpeg": {
+    "width": 801,
+    "height": 1000,
+    "avif": [
+      {
+        "src": "/images/optimized/goldenphoto6-300.avif",
+        "width": 300,
+        "height": 375
+      },
+      {
+        "src": "/images/optimized/goldenphoto6-600.avif",
+        "width": 600,
+        "height": 749
+      },
+      {
+        "src": "/images/optimized/goldenphoto6-801.avif",
+        "width": 801,
+        "height": 1000
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/goldenphoto6-300.webp",
+        "width": 300,
+        "height": 375
+      },
+      {
+        "src": "/images/optimized/goldenphoto6-600.webp",
+        "width": 600,
+        "height": 749
+      },
+      {
+        "src": "/images/optimized/goldenphoto6-801.webp",
+        "width": 801,
+        "height": 1000
+      }
+    ]
+  },
+  "/images/goldenphoto7.jpg": {
+    "width": 3840,
+    "height": 2160,
+    "avif": [
+      {
+        "src": "/images/optimized/goldenphoto7-300.avif",
+        "width": 300,
+        "height": 169
+      },
+      {
+        "src": "/images/optimized/goldenphoto7-600.avif",
+        "width": 600,
+        "height": 338
+      },
+      {
+        "src": "/images/optimized/goldenphoto7-1200.avif",
+        "width": 1200,
+        "height": 675
+      },
+      {
+        "src": "/images/optimized/goldenphoto7-1920.avif",
+        "width": 1920,
+        "height": 1080
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/goldenphoto7-300.webp",
+        "width": 300,
+        "height": 169
+      },
+      {
+        "src": "/images/optimized/goldenphoto7-600.webp",
+        "width": 600,
+        "height": 338
+      },
+      {
+        "src": "/images/optimized/goldenphoto7-1200.webp",
+        "width": 1200,
+        "height": 675
+      },
+      {
+        "src": "/images/optimized/goldenphoto7-1920.webp",
+        "width": 1920,
+        "height": 1080
+      }
+    ]
+  },
+  "/images/haldi.avif": {
+    "width": 1600,
+    "height": 1065,
+    "avif": [
+      {
+        "src": "/images/optimized/haldi-300.avif",
+        "width": 300,
+        "height": 200
+      },
+      {
+        "src": "/images/optimized/haldi-600.avif",
+        "width": 600,
+        "height": 399
+      },
+      {
+        "src": "/images/optimized/haldi-1200.avif",
+        "width": 1200,
+        "height": 799
+      },
+      {
+        "src": "/images/optimized/haldi-1600.avif",
+        "width": 1600,
+        "height": 1065
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/haldi-300.webp",
+        "width": 300,
+        "height": 200
+      },
+      {
+        "src": "/images/optimized/haldi-600.webp",
+        "width": 600,
+        "height": 399
+      },
+      {
+        "src": "/images/optimized/haldi-1200.webp",
+        "width": 1200,
+        "height": 799
+      },
+      {
+        "src": "/images/optimized/haldi-1600.webp",
+        "width": 1600,
+        "height": 1065
+      }
+    ]
+  },
+  "/images/marraiagefolden.jpeg": {
+    "width": 1080,
+    "height": 1124,
+    "avif": [
+      {
+        "src": "/images/optimized/marraiagefolden-300.avif",
+        "width": 300,
+        "height": 312
+      },
+      {
+        "src": "/images/optimized/marraiagefolden-600.avif",
+        "width": 600,
+        "height": 624
+      },
+      {
+        "src": "/images/optimized/marraiagefolden-1080.avif",
+        "width": 1080,
+        "height": 1124
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/marraiagefolden-300.webp",
+        "width": 300,
+        "height": 312
+      },
+      {
+        "src": "/images/optimized/marraiagefolden-600.webp",
+        "width": 600,
+        "height": 624
+      },
+      {
+        "src": "/images/optimized/marraiagefolden-1080.webp",
+        "width": 1080,
+        "height": 1124
+      }
+    ]
+  },
+  "/images/preweddinggolden.jpeg": {
+    "width": 1080,
+    "height": 1349,
+    "avif": [
+      {
+        "src": "/images/optimized/preweddinggolden-300.avif",
+        "width": 300,
+        "height": 375
+      },
+      {
+        "src": "/images/optimized/preweddinggolden-600.avif",
+        "width": 600,
+        "height": 749
+      },
+      {
+        "src": "/images/optimized/preweddinggolden-1080.avif",
+        "width": 1080,
+        "height": 1349
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/preweddinggolden-300.webp",
+        "width": 300,
+        "height": 375
+      },
+      {
+        "src": "/images/optimized/preweddinggolden-600.webp",
+        "width": 600,
+        "height": 749
+      },
+      {
+        "src": "/images/optimized/preweddinggolden-1080.webp",
+        "width": 1080,
+        "height": 1349
+      }
+    ]
+  },
+  "/images/quote.jpg": {
+    "width": 626,
+    "height": 351,
+    "avif": [
+      {
+        "src": "/images/optimized/quote-300.avif",
+        "width": 300,
+        "height": 168
+      },
+      {
+        "src": "/images/optimized/quote-600.avif",
+        "width": 600,
+        "height": 336
+      },
+      {
+        "src": "/images/optimized/quote-626.avif",
+        "width": 626,
+        "height": 351
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/quote-300.webp",
+        "width": 300,
+        "height": 168
+      },
+      {
+        "src": "/images/optimized/quote-600.webp",
+        "width": 600,
+        "height": 336
+      },
+      {
+        "src": "/images/optimized/quote-626.webp",
+        "width": 626,
+        "height": 351
+      }
+    ]
+  },
+  "/images/rings.jpg": {
+    "width": 1080,
+    "height": 1355,
+    "avif": [
+      {
+        "src": "/images/optimized/rings-300.avif",
+        "width": 300,
+        "height": 376
+      },
+      {
+        "src": "/images/optimized/rings-600.avif",
+        "width": 600,
+        "height": 753
+      },
+      {
+        "src": "/images/optimized/rings-1080.avif",
+        "width": 1080,
+        "height": 1355
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/rings-300.webp",
+        "width": 300,
+        "height": 376
+      },
+      {
+        "src": "/images/optimized/rings-600.webp",
+        "width": 600,
+        "height": 753
+      },
+      {
+        "src": "/images/optimized/rings-1080.webp",
+        "width": 1080,
+        "height": 1355
+      }
+    ]
+  },
+  "/images/walking.jpg": {
+    "width": 736,
+    "height": 920,
+    "avif": [
+      {
+        "src": "/images/optimized/walking-300.avif",
+        "width": 300,
+        "height": 375
+      },
+      {
+        "src": "/images/optimized/walking-600.avif",
+        "width": 600,
+        "height": 750
+      },
+      {
+        "src": "/images/optimized/walking-736.avif",
+        "width": 736,
+        "height": 920
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/walking-300.webp",
+        "width": 300,
+        "height": 375
+      },
+      {
+        "src": "/images/optimized/walking-600.webp",
+        "width": 600,
+        "height": 750
+      },
+      {
+        "src": "/images/optimized/walking-736.webp",
+        "width": 736,
+        "height": 920
+      }
+    ]
+  },
+  "/images/whyusgolden.JPG": {
+    "width": 6000,
+    "height": 4000,
+    "avif": [
+      {
+        "src": "/images/optimized/whyusgolden-300.avif",
+        "width": 300,
+        "height": 200
+      },
+      {
+        "src": "/images/optimized/whyusgolden-600.avif",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/optimized/whyusgolden-1200.avif",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/optimized/whyusgolden-1920.avif",
+        "width": 1920,
+        "height": 1280
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/whyusgolden-300.webp",
+        "width": 300,
+        "height": 200
+      },
+      {
+        "src": "/images/optimized/whyusgolden-600.webp",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/optimized/whyusgolden-1200.webp",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/optimized/whyusgolden-1920.webp",
+        "width": 1920,
+        "height": 1280
+      }
+    ]
+  },
+  "/images/album-baraat-fireworks.jpg": {
+    "width": 2400,
+    "height": 800,
+    "avif": [
+      {
+        "src": "/images/optimized/album-baraat-fireworks-300.avif",
+        "width": 300,
+        "height": 100
+      },
+      {
+        "src": "/images/optimized/album-baraat-fireworks-600.avif",
+        "width": 600,
+        "height": 200
+      },
+      {
+        "src": "/images/optimized/album-baraat-fireworks-1200.avif",
+        "width": 1200,
+        "height": 400
+      },
+      {
+        "src": "/images/optimized/album-baraat-fireworks-1920.avif",
+        "width": 1920,
+        "height": 640
+      },
+      {
+        "src": "/images/optimized/album-baraat-fireworks-2400.avif",
+        "width": 2400,
+        "height": 800
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/album-baraat-fireworks-300.webp",
+        "width": 300,
+        "height": 100
+      },
+      {
+        "src": "/images/optimized/album-baraat-fireworks-600.webp",
+        "width": 600,
+        "height": 200
+      },
+      {
+        "src": "/images/optimized/album-baraat-fireworks-1200.webp",
+        "width": 1200,
+        "height": 400
+      },
+      {
+        "src": "/images/optimized/album-baraat-fireworks-1920.webp",
+        "width": 1920,
+        "height": 640
+      },
+      {
+        "src": "/images/optimized/album-baraat-fireworks-2400.webp",
+        "width": 2400,
+        "height": 800
+      }
+    ]
+  },
+  "/images/album-bride-and-groom.jpg": {
+    "width": 2400,
+    "height": 800,
+    "avif": [
+      {
+        "src": "/images/optimized/album-bride-and-groom-300.avif",
+        "width": 300,
+        "height": 100
+      },
+      {
+        "src": "/images/optimized/album-bride-and-groom-600.avif",
+        "width": 600,
+        "height": 200
+      },
+      {
+        "src": "/images/optimized/album-bride-and-groom-1200.avif",
+        "width": 1200,
+        "height": 400
+      },
+      {
+        "src": "/images/optimized/album-bride-and-groom-1920.avif",
+        "width": 1920,
+        "height": 640
+      },
+      {
+        "src": "/images/optimized/album-bride-and-groom-2400.avif",
+        "width": 2400,
+        "height": 800
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/album-bride-and-groom-300.webp",
+        "width": 300,
+        "height": 100
+      },
+      {
+        "src": "/images/optimized/album-bride-and-groom-600.webp",
+        "width": 600,
+        "height": 200
+      },
+      {
+        "src": "/images/optimized/album-bride-and-groom-1200.webp",
+        "width": 1200,
+        "height": 400
+      },
+      {
+        "src": "/images/optimized/album-bride-and-groom-1920.webp",
+        "width": 1920,
+        "height": 640
+      },
+      {
+        "src": "/images/optimized/album-bride-and-groom-2400.webp",
+        "width": 2400,
+        "height": 800
+      }
+    ]
+  },
+  "/images/album-bride-beauty.jpg": {
+    "width": 2400,
+    "height": 800,
+    "avif": [
+      {
+        "src": "/images/optimized/album-bride-beauty-300.avif",
+        "width": 300,
+        "height": 100
+      },
+      {
+        "src": "/images/optimized/album-bride-beauty-600.avif",
+        "width": 600,
+        "height": 200
+      },
+      {
+        "src": "/images/optimized/album-bride-beauty-1200.avif",
+        "width": 1200,
+        "height": 400
+      },
+      {
+        "src": "/images/optimized/album-bride-beauty-1920.avif",
+        "width": 1920,
+        "height": 640
+      },
+      {
+        "src": "/images/optimized/album-bride-beauty-2400.avif",
+        "width": 2400,
+        "height": 800
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/album-bride-beauty-300.webp",
+        "width": 300,
+        "height": 100
+      },
+      {
+        "src": "/images/optimized/album-bride-beauty-600.webp",
+        "width": 600,
+        "height": 200
+      },
+      {
+        "src": "/images/optimized/album-bride-beauty-1200.webp",
+        "width": 1200,
+        "height": 400
+      },
+      {
+        "src": "/images/optimized/album-bride-beauty-1920.webp",
+        "width": 1920,
+        "height": 640
+      },
+      {
+        "src": "/images/optimized/album-bride-beauty-2400.webp",
+        "width": 2400,
+        "height": 800
+      }
+    ]
+  },
+  "/images/album-bride-gown.jpg": {
+    "width": 2400,
+    "height": 800,
+    "avif": [
+      {
+        "src": "/images/optimized/album-bride-gown-300.avif",
+        "width": 300,
+        "height": 100
+      },
+      {
+        "src": "/images/optimized/album-bride-gown-600.avif",
+        "width": 600,
+        "height": 200
+      },
+      {
+        "src": "/images/optimized/album-bride-gown-1200.avif",
+        "width": 1200,
+        "height": 400
+      },
+      {
+        "src": "/images/optimized/album-bride-gown-1920.avif",
+        "width": 1920,
+        "height": 640
+      },
+      {
+        "src": "/images/optimized/album-bride-gown-2400.avif",
+        "width": 2400,
+        "height": 800
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/album-bride-gown-300.webp",
+        "width": 300,
+        "height": 100
+      },
+      {
+        "src": "/images/optimized/album-bride-gown-600.webp",
+        "width": 600,
+        "height": 200
+      },
+      {
+        "src": "/images/optimized/album-bride-gown-1200.webp",
+        "width": 1200,
+        "height": 400
+      },
+      {
+        "src": "/images/optimized/album-bride-gown-1920.webp",
+        "width": 1920,
+        "height": 640
+      },
+      {
+        "src": "/images/optimized/album-bride-gown-2400.webp",
+        "width": 2400,
+        "height": 800
+      }
+    ]
+  },
+  "/images/album-bride-groom-mist.jpg": {
+    "width": 2400,
+    "height": 800,
+    "avif": [
+      {
+        "src": "/images/optimized/album-bride-groom-mist-300.avif",
+        "width": 300,
+        "height": 100
+      },
+      {
+        "src": "/images/optimized/album-bride-groom-mist-600.avif",
+        "width": 600,
+        "height": 200
+      },
+      {
+        "src": "/images/optimized/album-bride-groom-mist-1200.avif",
+        "width": 1200,
+        "height": 400
+      },
+      {
+        "src": "/images/optimized/album-bride-groom-mist-1920.avif",
+        "width": 1920,
+        "height": 640
+      },
+      {
+        "src": "/images/optimized/album-bride-groom-mist-2400.avif",
+        "width": 2400,
+        "height": 800
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/album-bride-groom-mist-300.webp",
+        "width": 300,
+        "height": 100
+      },
+      {
+        "src": "/images/optimized/album-bride-groom-mist-600.webp",
+        "width": 600,
+        "height": 200
+      },
+      {
+        "src": "/images/optimized/album-bride-groom-mist-1200.webp",
+        "width": 1200,
+        "height": 400
+      },
+      {
+        "src": "/images/optimized/album-bride-groom-mist-1920.webp",
+        "width": 1920,
+        "height": 640
+      },
+      {
+        "src": "/images/optimized/album-bride-groom-mist-2400.webp",
+        "width": 2400,
+        "height": 800
+      }
+    ]
+  },
+  "/images/album-bride-makeup.jpg": {
+    "width": 2400,
+    "height": 800,
+    "avif": [
+      {
+        "src": "/images/optimized/album-bride-makeup-300.avif",
+        "width": 300,
+        "height": 100
+      },
+      {
+        "src": "/images/optimized/album-bride-makeup-600.avif",
+        "width": 600,
+        "height": 200
+      },
+      {
+        "src": "/images/optimized/album-bride-makeup-1200.avif",
+        "width": 1200,
+        "height": 400
+      },
+      {
+        "src": "/images/optimized/album-bride-makeup-1920.avif",
+        "width": 1920,
+        "height": 640
+      },
+      {
+        "src": "/images/optimized/album-bride-makeup-2400.avif",
+        "width": 2400,
+        "height": 800
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/album-bride-makeup-300.webp",
+        "width": 300,
+        "height": 100
+      },
+      {
+        "src": "/images/optimized/album-bride-makeup-600.webp",
+        "width": 600,
+        "height": 200
+      },
+      {
+        "src": "/images/optimized/album-bride-makeup-1200.webp",
+        "width": 1200,
+        "height": 400
+      },
+      {
+        "src": "/images/optimized/album-bride-makeup-1920.webp",
+        "width": 1920,
+        "height": 640
+      },
+      {
+        "src": "/images/optimized/album-bride-makeup-2400.webp",
+        "width": 2400,
+        "height": 800
+      }
+    ]
+  },
+  "/images/album-bride-portraits.jpg": {
+    "width": 2400,
+    "height": 800,
+    "avif": [
+      {
+        "src": "/images/optimized/album-bride-portraits-300.avif",
+        "width": 300,
+        "height": 100
+      },
+      {
+        "src": "/images/optimized/album-bride-portraits-600.avif",
+        "width": 600,
+        "height": 200
+      },
+      {
+        "src": "/images/optimized/album-bride-portraits-1200.avif",
+        "width": 1200,
+        "height": 400
+      },
+      {
+        "src": "/images/optimized/album-bride-portraits-1920.avif",
+        "width": 1920,
+        "height": 640
+      },
+      {
+        "src": "/images/optimized/album-bride-portraits-2400.avif",
+        "width": 2400,
+        "height": 800
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/album-bride-portraits-300.webp",
+        "width": 300,
+        "height": 100
+      },
+      {
+        "src": "/images/optimized/album-bride-portraits-600.webp",
+        "width": 600,
+        "height": 200
+      },
+      {
+        "src": "/images/optimized/album-bride-portraits-1200.webp",
+        "width": 1200,
+        "height": 400
+      },
+      {
+        "src": "/images/optimized/album-bride-portraits-1920.webp",
+        "width": 1920,
+        "height": 640
+      },
+      {
+        "src": "/images/optimized/album-bride-portraits-2400.webp",
+        "width": 2400,
+        "height": 800
+      }
+    ]
+  },
+  "/images/album-bw-romantic.jpg": {
+    "width": 2400,
+    "height": 800,
+    "avif": [
+      {
+        "src": "/images/optimized/album-bw-romantic-300.avif",
+        "width": 300,
+        "height": 100
+      },
+      {
+        "src": "/images/optimized/album-bw-romantic-600.avif",
+        "width": 600,
+        "height": 200
+      },
+      {
+        "src": "/images/optimized/album-bw-romantic-1200.avif",
+        "width": 1200,
+        "height": 400
+      },
+      {
+        "src": "/images/optimized/album-bw-romantic-1920.avif",
+        "width": 1920,
+        "height": 640
+      },
+      {
+        "src": "/images/optimized/album-bw-romantic-2400.avif",
+        "width": 2400,
+        "height": 800
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/album-bw-romantic-300.webp",
+        "width": 300,
+        "height": 100
+      },
+      {
+        "src": "/images/optimized/album-bw-romantic-600.webp",
+        "width": 600,
+        "height": 200
+      },
+      {
+        "src": "/images/optimized/album-bw-romantic-1200.webp",
+        "width": 1200,
+        "height": 400
+      },
+      {
+        "src": "/images/optimized/album-bw-romantic-1920.webp",
+        "width": 1920,
+        "height": 640
+      },
+      {
+        "src": "/images/optimized/album-bw-romantic-2400.webp",
+        "width": 2400,
+        "height": 800
+      }
+    ]
+  },
+  "/images/album-bw-wedding.jpg": {
+    "width": 2400,
+    "height": 800,
+    "avif": [
+      {
+        "src": "/images/optimized/album-bw-wedding-300.avif",
+        "width": 300,
+        "height": 100
+      },
+      {
+        "src": "/images/optimized/album-bw-wedding-600.avif",
+        "width": 600,
+        "height": 200
+      },
+      {
+        "src": "/images/optimized/album-bw-wedding-1200.avif",
+        "width": 1200,
+        "height": 400
+      },
+      {
+        "src": "/images/optimized/album-bw-wedding-1920.avif",
+        "width": 1920,
+        "height": 640
+      },
+      {
+        "src": "/images/optimized/album-bw-wedding-2400.avif",
+        "width": 2400,
+        "height": 800
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/album-bw-wedding-300.webp",
+        "width": 300,
+        "height": 100
+      },
+      {
+        "src": "/images/optimized/album-bw-wedding-600.webp",
+        "width": 600,
+        "height": 200
+      },
+      {
+        "src": "/images/optimized/album-bw-wedding-1200.webp",
+        "width": 1200,
+        "height": 400
+      },
+      {
+        "src": "/images/optimized/album-bw-wedding-1920.webp",
+        "width": 1920,
+        "height": 640
+      },
+      {
+        "src": "/images/optimized/album-bw-wedding-2400.webp",
+        "width": 2400,
+        "height": 800
+      }
+    ]
+  },
+  "/images/album-colour-baraat.jpg": {
+    "width": 2400,
+    "height": 800,
+    "avif": [
+      {
+        "src": "/images/optimized/album-colour-baraat-300.avif",
+        "width": 300,
+        "height": 100
+      },
+      {
+        "src": "/images/optimized/album-colour-baraat-600.avif",
+        "width": 600,
+        "height": 200
+      },
+      {
+        "src": "/images/optimized/album-colour-baraat-1200.avif",
+        "width": 1200,
+        "height": 400
+      },
+      {
+        "src": "/images/optimized/album-colour-baraat-1920.avif",
+        "width": 1920,
+        "height": 640
+      },
+      {
+        "src": "/images/optimized/album-colour-baraat-2400.avif",
+        "width": 2400,
+        "height": 800
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/album-colour-baraat-300.webp",
+        "width": 300,
+        "height": 100
+      },
+      {
+        "src": "/images/optimized/album-colour-baraat-600.webp",
+        "width": 600,
+        "height": 200
+      },
+      {
+        "src": "/images/optimized/album-colour-baraat-1200.webp",
+        "width": 1200,
+        "height": 400
+      },
+      {
+        "src": "/images/optimized/album-colour-baraat-1920.webp",
+        "width": 1920,
+        "height": 640
+      },
+      {
+        "src": "/images/optimized/album-colour-baraat-2400.webp",
+        "width": 2400,
+        "height": 800
+      }
+    ]
+  },
+  "/images/album-couple-closeup.jpg": {
+    "width": 2400,
+    "height": 1600,
+    "avif": [
+      {
+        "src": "/images/optimized/album-couple-closeup-300.avif",
+        "width": 300,
+        "height": 200
+      },
+      {
+        "src": "/images/optimized/album-couple-closeup-600.avif",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/optimized/album-couple-closeup-1200.avif",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/optimized/album-couple-closeup-1920.avif",
+        "width": 1920,
+        "height": 1280
+      },
+      {
+        "src": "/images/optimized/album-couple-closeup-2400.avif",
+        "width": 2400,
+        "height": 1600
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/album-couple-closeup-300.webp",
+        "width": 300,
+        "height": 200
+      },
+      {
+        "src": "/images/optimized/album-couple-closeup-600.webp",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/optimized/album-couple-closeup-1200.webp",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/optimized/album-couple-closeup-1920.webp",
+        "width": 1920,
+        "height": 1280
+      },
+      {
+        "src": "/images/optimized/album-couple-closeup-2400.webp",
+        "width": 2400,
+        "height": 1600
+      }
+    ]
+  },
+  "/images/album-couple-embrace.jpg": {
+    "width": 2400,
+    "height": 800,
+    "avif": [
+      {
+        "src": "/images/optimized/album-couple-embrace-300.avif",
+        "width": 300,
+        "height": 100
+      },
+      {
+        "src": "/images/optimized/album-couple-embrace-600.avif",
+        "width": 600,
+        "height": 200
+      },
+      {
+        "src": "/images/optimized/album-couple-embrace-1200.avif",
+        "width": 1200,
+        "height": 400
+      },
+      {
+        "src": "/images/optimized/album-couple-embrace-1920.avif",
+        "width": 1920,
+        "height": 640
+      },
+      {
+        "src": "/images/optimized/album-couple-embrace-2400.avif",
+        "width": 2400,
+        "height": 800
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/album-couple-embrace-300.webp",
+        "width": 300,
+        "height": 100
+      },
+      {
+        "src": "/images/optimized/album-couple-embrace-600.webp",
+        "width": 600,
+        "height": 200
+      },
+      {
+        "src": "/images/optimized/album-couple-embrace-1200.webp",
+        "width": 1200,
+        "height": 400
+      },
+      {
+        "src": "/images/optimized/album-couple-embrace-1920.webp",
+        "width": 1920,
+        "height": 640
+      },
+      {
+        "src": "/images/optimized/album-couple-embrace-2400.webp",
+        "width": 2400,
+        "height": 800
+      }
+    ]
+  },
+  "/images/album-cover.jpg": {
+    "width": 2400,
+    "height": 1600,
+    "avif": [
+      {
+        "src": "/images/optimized/album-cover-300.avif",
+        "width": 300,
+        "height": 200
+      },
+      {
+        "src": "/images/optimized/album-cover-600.avif",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/optimized/album-cover-1200.avif",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/optimized/album-cover-1920.avif",
+        "width": 1920,
+        "height": 1280
+      },
+      {
+        "src": "/images/optimized/album-cover-2400.avif",
+        "width": 2400,
+        "height": 1600
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/album-cover-300.webp",
+        "width": 300,
+        "height": 200
+      },
+      {
+        "src": "/images/optimized/album-cover-600.webp",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/optimized/album-cover-1200.webp",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/optimized/album-cover-1920.webp",
+        "width": 1920,
+        "height": 1280
+      },
+      {
+        "src": "/images/optimized/album-cover-2400.webp",
+        "width": 2400,
+        "height": 1600
+      }
+    ]
+  },
+  "/images/album-groom-portraits.jpg": {
+    "width": 2400,
+    "height": 800,
+    "avif": [
+      {
+        "src": "/images/optimized/album-groom-portraits-300.avif",
+        "width": 300,
+        "height": 100
+      },
+      {
+        "src": "/images/optimized/album-groom-portraits-600.avif",
+        "width": 600,
+        "height": 200
+      },
+      {
+        "src": "/images/optimized/album-groom-portraits-1200.avif",
+        "width": 1200,
+        "height": 400
+      },
+      {
+        "src": "/images/optimized/album-groom-portraits-1920.avif",
+        "width": 1920,
+        "height": 640
+      },
+      {
+        "src": "/images/optimized/album-groom-portraits-2400.avif",
+        "width": 2400,
+        "height": 800
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/album-groom-portraits-300.webp",
+        "width": 300,
+        "height": 100
+      },
+      {
+        "src": "/images/optimized/album-groom-portraits-600.webp",
+        "width": 600,
+        "height": 200
+      },
+      {
+        "src": "/images/optimized/album-groom-portraits-1200.webp",
+        "width": 1200,
+        "height": 400
+      },
+      {
+        "src": "/images/optimized/album-groom-portraits-1920.webp",
+        "width": 1920,
+        "height": 640
+      },
+      {
+        "src": "/images/optimized/album-groom-portraits-2400.webp",
+        "width": 2400,
+        "height": 800
+      }
+    ]
+  },
+  "/images/album-romantic-couple.jpg": {
+    "width": 2400,
+    "height": 800,
+    "avif": [
+      {
+        "src": "/images/optimized/album-romantic-couple-300.avif",
+        "width": 300,
+        "height": 100
+      },
+      {
+        "src": "/images/optimized/album-romantic-couple-600.avif",
+        "width": 600,
+        "height": 200
+      },
+      {
+        "src": "/images/optimized/album-romantic-couple-1200.avif",
+        "width": 1200,
+        "height": 400
+      },
+      {
+        "src": "/images/optimized/album-romantic-couple-1920.avif",
+        "width": 1920,
+        "height": 640
+      },
+      {
+        "src": "/images/optimized/album-romantic-couple-2400.avif",
+        "width": 2400,
+        "height": 800
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/album-romantic-couple-300.webp",
+        "width": 300,
+        "height": 100
+      },
+      {
+        "src": "/images/optimized/album-romantic-couple-600.webp",
+        "width": 600,
+        "height": 200
+      },
+      {
+        "src": "/images/optimized/album-romantic-couple-1200.webp",
+        "width": 1200,
+        "height": 400
+      },
+      {
+        "src": "/images/optimized/album-romantic-couple-1920.webp",
+        "width": 1920,
+        "height": 640
+      },
+      {
+        "src": "/images/optimized/album-romantic-couple-2400.webp",
+        "width": 2400,
+        "height": 800
+      }
+    ]
+  },
+  "/images/album-royal-couple.jpg": {
+    "width": 2400,
+    "height": 1600,
+    "avif": [
+      {
+        "src": "/images/optimized/album-royal-couple-300.avif",
+        "width": 300,
+        "height": 200
+      },
+      {
+        "src": "/images/optimized/album-royal-couple-600.avif",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/optimized/album-royal-couple-1200.avif",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/optimized/album-royal-couple-1920.avif",
+        "width": 1920,
+        "height": 1280
+      },
+      {
+        "src": "/images/optimized/album-royal-couple-2400.avif",
+        "width": 2400,
+        "height": 1600
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/album-royal-couple-300.webp",
+        "width": 300,
+        "height": 200
+      },
+      {
+        "src": "/images/optimized/album-royal-couple-600.webp",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/optimized/album-royal-couple-1200.webp",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/optimized/album-royal-couple-1920.webp",
+        "width": 1920,
+        "height": 1280
+      },
+      {
+        "src": "/images/optimized/album-royal-couple-2400.webp",
+        "width": 2400,
+        "height": 1600
+      }
+    ]
+  },
+  "/images/album-varmala.jpg": {
+    "width": 2400,
+    "height": 800,
+    "avif": [
+      {
+        "src": "/images/optimized/album-varmala-300.avif",
+        "width": 300,
+        "height": 100
+      },
+      {
+        "src": "/images/optimized/album-varmala-600.avif",
+        "width": 600,
+        "height": 200
+      },
+      {
+        "src": "/images/optimized/album-varmala-1200.avif",
+        "width": 1200,
+        "height": 400
+      },
+      {
+        "src": "/images/optimized/album-varmala-1920.avif",
+        "width": 1920,
+        "height": 640
+      },
+      {
+        "src": "/images/optimized/album-varmala-2400.avif",
+        "width": 2400,
+        "height": 800
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/album-varmala-300.webp",
+        "width": 300,
+        "height": 100
+      },
+      {
+        "src": "/images/optimized/album-varmala-600.webp",
+        "width": 600,
+        "height": 200
+      },
+      {
+        "src": "/images/optimized/album-varmala-1200.webp",
+        "width": 1200,
+        "height": 400
+      },
+      {
+        "src": "/images/optimized/album-varmala-1920.webp",
+        "width": 1920,
+        "height": 640
+      },
+      {
+        "src": "/images/optimized/album-varmala-2400.webp",
+        "width": 2400,
+        "height": 800
+      }
+    ]
+  },
+  "/images/set-grey-bag.jpg": {
+    "width": 1024,
+    "height": 739,
+    "avif": [
+      {
+        "src": "/images/optimized/set-grey-bag-300.avif",
+        "width": 300,
+        "height": 217
+      },
+      {
+        "src": "/images/optimized/set-grey-bag-600.avif",
+        "width": 600,
+        "height": 433
+      },
+      {
+        "src": "/images/optimized/set-grey-bag-1024.avif",
+        "width": 1024,
+        "height": 739
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/set-grey-bag-300.webp",
+        "width": 300,
+        "height": 217
+      },
+      {
+        "src": "/images/optimized/set-grey-bag-600.webp",
+        "width": 600,
+        "height": 433
+      },
+      {
+        "src": "/images/optimized/set-grey-bag-1024.webp",
+        "width": 1024,
+        "height": 739
+      }
+    ]
+  },
+  "/images/set-leather-box.jpg": {
+    "width": 1024,
+    "height": 932,
+    "avif": [
+      {
+        "src": "/images/optimized/set-leather-box-300.avif",
+        "width": 300,
+        "height": 273
+      },
+      {
+        "src": "/images/optimized/set-leather-box-600.avif",
+        "width": 600,
+        "height": 546
+      },
+      {
+        "src": "/images/optimized/set-leather-box-1024.avif",
+        "width": 1024,
+        "height": 932
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/set-leather-box-300.webp",
+        "width": 300,
+        "height": 273
+      },
+      {
+        "src": "/images/optimized/set-leather-box-600.webp",
+        "width": 600,
+        "height": 546
+      },
+      {
+        "src": "/images/optimized/set-leather-box-1024.webp",
+        "width": 1024,
+        "height": 932
+      }
+    ]
+  },
+  "/images/style-ap35-02.jpg": {
+    "width": 1174,
+    "height": 2100,
+    "avif": [
+      {
+        "src": "/images/optimized/style-ap35-02-300.avif",
+        "width": 300,
+        "height": 537
+      },
+      {
+        "src": "/images/optimized/style-ap35-02-600.avif",
+        "width": 600,
+        "height": 1073
+      },
+      {
+        "src": "/images/optimized/style-ap35-02-1174.avif",
+        "width": 1174,
+        "height": 2100
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/style-ap35-02-300.webp",
+        "width": 300,
+        "height": 537
+      },
+      {
+        "src": "/images/optimized/style-ap35-02-600.webp",
+        "width": 600,
+        "height": 1073
+      },
+      {
+        "src": "/images/optimized/style-ap35-02-1174.webp",
+        "width": 1174,
+        "height": 2100
+      }
+    ]
+  },
+  "/images/style-fr28-01.jpg": {
+    "width": 1174,
+    "height": 2100,
+    "avif": [
+      {
+        "src": "/images/optimized/style-fr28-01-300.avif",
+        "width": 300,
+        "height": 537
+      },
+      {
+        "src": "/images/optimized/style-fr28-01-600.avif",
+        "width": 600,
+        "height": 1073
+      },
+      {
+        "src": "/images/optimized/style-fr28-01-1174.avif",
+        "width": 1174,
+        "height": 2100
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/style-fr28-01-300.webp",
+        "width": 300,
+        "height": 537
+      },
+      {
+        "src": "/images/optimized/style-fr28-01-600.webp",
+        "width": 600,
+        "height": 1073
+      },
+      {
+        "src": "/images/optimized/style-fr28-01-1174.webp",
+        "width": 1174,
+        "height": 2100
+      }
+    ]
+  },
+  "/images/style-ob10-10.jpg": {
+    "width": 1174,
+    "height": 2100,
+    "avif": [
+      {
+        "src": "/images/optimized/style-ob10-10-300.avif",
+        "width": 300,
+        "height": 537
+      },
+      {
+        "src": "/images/optimized/style-ob10-10-600.avif",
+        "width": 600,
+        "height": 1073
+      },
+      {
+        "src": "/images/optimized/style-ob10-10-1174.avif",
+        "width": 1174,
+        "height": 2100
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/style-ob10-10-300.webp",
+        "width": 300,
+        "height": 537
+      },
+      {
+        "src": "/images/optimized/style-ob10-10-600.webp",
+        "width": 600,
+        "height": 1073
+      },
+      {
+        "src": "/images/optimized/style-ob10-10-1174.webp",
+        "width": 1174,
+        "height": 2100
+      }
+    ]
+  },
+  "/images/style-sm110-01.jpg": {
+    "width": 1174,
+    "height": 2100,
+    "avif": [
+      {
+        "src": "/images/optimized/style-sm110-01-300.avif",
+        "width": 300,
+        "height": 537
+      },
+      {
+        "src": "/images/optimized/style-sm110-01-600.avif",
+        "width": 600,
+        "height": 1073
+      },
+      {
+        "src": "/images/optimized/style-sm110-01-1174.avif",
+        "width": 1174,
+        "height": 2100
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/style-sm110-01-300.webp",
+        "width": 300,
+        "height": 537
+      },
+      {
+        "src": "/images/optimized/style-sm110-01-600.webp",
+        "width": 600,
+        "height": 1073
+      },
+      {
+        "src": "/images/optimized/style-sm110-01-1174.webp",
+        "width": 1174,
+        "height": 2100
+      }
+    ]
+  },
+  "/images/style-sm60-04.jpg": {
+    "width": 1174,
+    "height": 2100,
+    "avif": [
+      {
+        "src": "/images/optimized/style-sm60-04-300.avif",
+        "width": 300,
+        "height": 537
+      },
+      {
+        "src": "/images/optimized/style-sm60-04-600.avif",
+        "width": 600,
+        "height": 1073
+      },
+      {
+        "src": "/images/optimized/style-sm60-04-1174.avif",
+        "width": 1174,
+        "height": 2100
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/style-sm60-04-300.webp",
+        "width": 300,
+        "height": 537
+      },
+      {
+        "src": "/images/optimized/style-sm60-04-600.webp",
+        "width": 600,
+        "height": 1073
+      },
+      {
+        "src": "/images/optimized/style-sm60-04-1174.webp",
+        "width": 1174,
+        "height": 2100
+      }
+    ]
+  },
+  "/images/style-sm70-02.jpg": {
+    "width": 1174,
+    "height": 2100,
+    "avif": [
+      {
+        "src": "/images/optimized/style-sm70-02-300.avif",
+        "width": 300,
+        "height": 537
+      },
+      {
+        "src": "/images/optimized/style-sm70-02-600.avif",
+        "width": 600,
+        "height": 1073
+      },
+      {
+        "src": "/images/optimized/style-sm70-02-1174.avif",
+        "width": 1174,
+        "height": 2100
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/style-sm70-02-300.webp",
+        "width": 300,
+        "height": 537
+      },
+      {
+        "src": "/images/optimized/style-sm70-02-600.webp",
+        "width": 600,
+        "height": 1073
+      },
+      {
+        "src": "/images/optimized/style-sm70-02-1174.webp",
+        "width": 1174,
+        "height": 2100
+      }
+    ]
+  },
+  "/images/style-tm16-02.jpg": {
+    "width": 1174,
+    "height": 2100,
+    "avif": [
+      {
+        "src": "/images/optimized/style-tm16-02-300.avif",
+        "width": 300,
+        "height": 537
+      },
+      {
+        "src": "/images/optimized/style-tm16-02-600.avif",
+        "width": 600,
+        "height": 1073
+      },
+      {
+        "src": "/images/optimized/style-tm16-02-1174.avif",
+        "width": 1174,
+        "height": 2100
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/style-tm16-02-300.webp",
+        "width": 300,
+        "height": 537
+      },
+      {
+        "src": "/images/optimized/style-tm16-02-600.webp",
+        "width": 600,
+        "height": 1073
+      },
+      {
+        "src": "/images/optimized/style-tm16-02-1174.webp",
+        "width": 1174,
+        "height": 2100
+      }
+    ]
+  },
+  "/images/style-uw22-03.jpg": {
+    "width": 1174,
+    "height": 2100,
+    "avif": [
+      {
+        "src": "/images/optimized/style-uw22-03-300.avif",
+        "width": 300,
+        "height": 537
+      },
+      {
+        "src": "/images/optimized/style-uw22-03-600.avif",
+        "width": 600,
+        "height": 1073
+      },
+      {
+        "src": "/images/optimized/style-uw22-03-1174.avif",
+        "width": 1174,
+        "height": 2100
+      }
+    ],
+    "webp": [
+      {
+        "src": "/images/optimized/style-uw22-03-300.webp",
+        "width": 300,
+        "height": 537
+      },
+      {
+        "src": "/images/optimized/style-uw22-03-600.webp",
+        "width": 600,
+        "height": 1073
+      },
+      {
+        "src": "/images/optimized/style-uw22-03-1174.webp",
+        "width": 1174,
+        "height": 2100
+      }
+    ]
+  }
+}

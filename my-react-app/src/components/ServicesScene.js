@@ -1,31 +1,15 @@
 // Services page ka 3D scene (har service ka apna prop: rings, heart, ring light, party, film, drone, album).
-// three.js r128 CDN se load hota hai, taaki project ke "three" version se kuch na tootein.
-
-const THREE_SRC = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js'
-const ENV_SRC = 'https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/environments/RoomEnvironment.js'
-
-function loadScript(src) {
-  return new Promise((resolve, reject) => {
-    const old = document.querySelector(`script[data-svp="${src}"]`)
-    if (old) {
-      if (old.dataset.ready) return resolve()
-      old.addEventListener('load', resolve)
-      old.addEventListener('error', reject)
-      return
-    }
-    const s = document.createElement('script')
-    s.src = src
-    s.async = false
-    s.dataset.svp = src
-    s.onload = () => { s.dataset.ready = '1'; resolve() }
-    s.onerror = reject
-    document.head.appendChild(s)
-  })
-}
-
+// Services page 3D scene (one prop per service: rings, heart, ring light, party, film, drone, album).
+// three.js r128 is bundled (npm alias "three-r128") and loaded lazily only for the pages that use it,
+// instead of being fetched from third-party CDNs at runtime. These scenes were written against the
+// r128 global-namespace API, so they receive it as window.THREE.
 export async function loadThree() {
-  if (!window.THREE) await loadScript(THREE_SRC)
-  if (!window.THREE.RoomEnvironment) await loadScript(ENV_SRC)
+  if (window.THREE && window.THREE.RoomEnvironment) return
+  const [THREE, env] = await Promise.all([
+    import('three-r128'),
+    import('three-r128/examples/jsm/environments/RoomEnvironment.js'),
+  ])
+  window.THREE = { ...THREE, RoomEnvironment: env.RoomEnvironment }
 }
 
 /**
@@ -287,6 +271,6 @@ export function startScene(canvas, shared) {
         if (o.material) [].concat(o.material).forEach(m => { if (m.map) m.map.dispose(); m.dispose() })
       })
       R && R.dispose()
-    } catch (e) { /* ignore */ }
+    } catch { /* ignore */ }
   }
 }

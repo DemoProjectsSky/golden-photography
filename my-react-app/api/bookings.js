@@ -1,77 +1,96 @@
-
 import nodemailer from "nodemailer";
 
+// ---- limits & helpers -------------------------------------------------------
+const LIMITS = { name: 80, email: 120, phone: 20, type: 60, date: 10, message: 2000 };
+const WINDOW_MS = 10 * 60 * 1000;
+const MAX_PER_WINDOW = 5;
+const hits = new Map(); // best-effort, per warm serverless instance (not a substitute for a WAF)
+
+/* eslint-disable no-control-regex -- stripping control characters is the point of these helpers */
+// Removes control characters (incl. CR/LF, which enable email header injection) and trims.
+const clean = (v, max) =>
+  String(v ?? "")
+    .replace(/[\u0000-\u001f\u007f]+/g, " ")
+    .trim()
+    .slice(0, max);
+
+// Message keeps line breaks but drops other control characters.
+const cleanMessage = (v) =>
+  String(v ?? "")
+    .replace(/\r\n?/g, "\n")
+    .replace(/[\u0000-\u0009\u000b-\u001f\u007f]/g, "")
+    .trim()
+    .slice(0, LIMITS.message);
+
+function rateLimited(ip) {
+  const now = Date.now();
+  const recent = (hits.get(ip) || []).filter((t) => now - t < WINDOW_MS);
+  recent.push(now);
+  hits.set(ip, recent);
+  if (hits.size > 500) for (const [k, v] of hits) if (!v.some((t) => now - t < WINDOW_MS)) hits.delete(k);
+  return recent.length > MAX_PER_WINDOW;
+}
+
+let transporter;
+function getTransporter(user, pass) {
+  if (!transporter) {
+    transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: { user, pass: pass.replace(/\s+/g, "") },
+    });
+  }
+  return transporter;
+}
+
+const fail = (res, status, error) => res.status(status).json({ ok: false, error });
+
+// ---- handler ----------------------------------------------------------------
 export default async function handler(req, res) {
   res.setHeader("Cache-Control", "no-store");
 
   if (req.method !== "POST") {
     res.setHeader("Allow", "POST");
-    return res.status(405).json({
-      ok: false,
-      error: "Method not allowed",
-    });
+    return fail(res, 405, "Method not allowed");
+  }
+
+  const body = req.body && typeof req.body === "object" ? req.body : {};
+
+  // Honeypot: real visitors never see or fill this field. Pretend success so bots learn nothing.
+  if (body.website) return res.status(200).json({ ok: true, message: "Your enquiry has been sent successfully." });
+
+  const ip = String(req.headers["x-forwarded-for"] || req.socket?.remoteAddress || "unknown").split(",")[0].trim();
+  if (rateLimited(ip)) {
+    res.setHeader("Retry-After", "600");
+    return fail(res, 429, "Too many enquiries. Please try again in a few minutes or call us.");
+  }
+
+  const { EMAIL_USER, EMAIL_APP_PASSWORD, EMAIL_TO } = process.env;
+  if (!EMAIL_USER || !EMAIL_APP_PASSWORD || !EMAIL_TO) {
+    return fail(res, 503, "Email service is not configured.");
+  }
+
+  const customerName = clean(body.name, LIMITS.name);
+  const customerEmail = clean(body.email, LIMITS.email);
+  const customerPhone = clean(body.phone, LIMITS.phone);
+  const shootTypeValue = clean(body.shootType || body.type, LIMITS.type);
+  const preferredDate = clean(body.date, LIMITS.date);
+  const customerMessage = cleanMessage(body.message || body.msg);
+
+  if (!customerName || !customerEmail || !customerPhone || !shootTypeValue) {
+    return fail(res, 400, "Name, email, phone and shoot type are required.");
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(customerEmail)) {
+    return fail(res, 400, "Please enter a valid email address.");
+  }
+  if (!/^\+?[0-9][0-9\s\-()]{6,18}$/.test(customerPhone)) {
+    return fail(res, 400, "Please enter a valid phone number.");
+  }
+  if (preferredDate && !/^\d{4}-\d{2}-\d{2}$/.test(preferredDate)) {
+    return fail(res, 400, "Please enter a valid date.");
   }
 
   try {
-    const {
-      EMAIL_USER,
-      EMAIL_APP_PASSWORD,
-      EMAIL_TO,
-    } = process.env;
-
-    if (!EMAIL_USER || !EMAIL_APP_PASSWORD || !EMAIL_TO) {
-      return res.status(503).json({
-        ok: false,
-        error: "Email service is not configured.",
-      });
-    }
-
-    const {
-      name,
-      email,
-      phone,
-      shootType,
-      type,
-      date,
-      message,
-      msg,
-    } = req.body || {};
-
-    const customerName = String(name || "").trim();
-    const customerEmail = String(email || "").trim();
-    const customerPhone = String(phone || "").trim();
-    const shootTypeValue = String(shootType || type || "").trim();
-    const preferredDate = String(date || "").trim();
-    const customerMessage = String(message || msg || "").trim();
-
-    if (
-      !customerName ||
-      !customerEmail ||
-      !customerPhone ||
-      !shootTypeValue
-    ) {
-      return res.status(400).json({
-        ok: false,
-        error: "Name, email, phone and shoot type are required.",
-      });
-    }
-
-    if (!/^\S+@\S+\.\S+$/.test(customerEmail)) {
-      return res.status(400).json({
-        ok: false,
-        error: "Please enter a valid email address.",
-      });
-    }
-
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: EMAIL_USER,
-        pass: EMAIL_APP_PASSWORD.replace(/\s+/g, ""),
-      },
-    });
-
-    const result = await transporter.sendMail({
+    await getTransporter(EMAIL_USER, EMAIL_APP_PASSWORD).sendMail({
       from: `Golden Photography <${EMAIL_USER}>`,
       to: EMAIL_TO,
       replyTo: customerEmail,
@@ -87,21 +106,9 @@ export default async function handler(req, res) {
         `Message: ${customerMessage || "Not provided"}`,
       ].join("\n"),
     });
-
-    console.log("Email sent:", result.messageId);
-
-    return res.status(200).json({
-      ok: true,
-      emailSent: true,
-      message: "Your enquiry has been sent successfully.",
-    });
-
+    return res.status(200).json({ ok: true, message: "Your enquiry has been sent successfully." });
   } catch (error) {
-    console.error("Nodemailer error:", error.message);
-
-    return res.status(500).json({
-      ok: false,
-      error: "Email sending failed. Please try again later.",
-    });
+    console.error("Booking email failed:", error.code || error.message); // no customer data in logs
+    return fail(res, 500, "Email sending failed. Please try again later.");
   }
 }

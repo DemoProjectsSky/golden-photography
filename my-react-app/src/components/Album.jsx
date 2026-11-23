@@ -1,205 +1,260 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
+import * as C from '../Content.js'
+import Picture from './Picture.jsx'
+import { ALBUM_INTRO, SIGNATURE, SPREADS, SPREAD_FILTERS, STYLES, PRICE_GUIDE } from '../albumData.js'
+import { priceFromCode, inr } from '../pricing.js'
 import './Album.css'
 
-// public/images/ me tumhari photos
-const IMGS = [
-  '/images/goldenphoto1.jpg',
-  '/images/goldenphoto2.jpg',
-  '/images/goldenphoto3.jpg',
-  '/images/goldenphoto4.jpg',
-  '/images/goldenphoto5.jpg',
-  '/images/goldenphoto6.jpeg',
-  '/images/goldenphoto7.jpg',
-]
+const waLink = text => `https://wa.me/${C.CONTACT.whatsapp}?text=${encodeURIComponent(text)}`
 
-// k = image index, w/h = size (em), r = tilt (deg), cap = handwritten caption
-function Ph({ k, w, h, r = 0, cap }) {
+// ---------------------------------------------------------------------------
+// Full-screen viewer built on the native <dialog>: focus trap, Esc to close and
+// focus restore come from the browser. Arrow keys and buttons move between photos.
+// ---------------------------------------------------------------------------
+function Lightbox({ items, index, onClose, onMove }) {
+  const ref = useRef(null)
+  const item = index === null ? null : items[index]
+
+  useEffect(() => {
+    const d = ref.current
+    if (!d) return undefined
+    if (index === null) {
+      if (d.open) d.close()
+      return undefined
+    }
+    if (!d.open) d.showModal()
+    const prev = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    return () => { document.body.style.overflow = prev }
+  }, [index])
+
+  const onKey = e => {
+    if (e.key === 'ArrowRight') { e.preventDefault(); onMove(1) }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); onMove(-1) }
+  }
+
   return (
-    <div className="ph" style={{ width: `${w}em`, height: `${h}em`, '--r': `${r}deg` }}>
-      <img src={IMGS[k % IMGS.length]} alt={cap || 'album photo'} loading="lazy" />
-      {cap && <i>{cap}</i>}
+    <dialog
+      ref={ref}
+      className="ab-lb"
+      aria-label="Album photo viewer"
+      onClose={onClose}
+      onKeyDown={onKey}
+      onClick={e => { if (e.target === ref.current) onClose() }}
+    >
+      {item && (
+        <div className="ab-lb-in">
+          <button type="button" className="ab-lb-x" onClick={onClose} aria-label="Close viewer">×</button>
+          <div className="ab-lb-img">
+            <Picture src={item.src} alt={item.alt} sizes="100vw" priority />
+          </div>
+          <div className="ab-lb-bar">
+            <button type="button" onClick={() => onMove(-1)} aria-label="Previous photo">←</button>
+            <p><b>{item.title}</b><span>{index + 1} / {items.length}</span></p>
+            <button type="button" onClick={() => onMove(1)} aria-label="Next photo">→</button>
+          </div>
+          <p className="ab-lb-hint">Swipe sideways to see the full page</p>
+        </div>
+      )}
+    </dialog>
+  )
+}
+
+function PriceTable({ title, unit = '', rows, extra }) {
+  return (
+    <div className="ab-pt">
+      <h3>{title}</h3>
+      <table>
+        <tbody>
+          {rows.map(([n, p]) => (
+            <tr key={n}><th scope="row">{n}</th><td>{inr(p)}{unit}</td></tr>
+          ))}
+          {extra && extra.map(([n, p]) => (
+            <tr key={n} className="ab-pt-extra"><th scope="row">{n}</th><td>+{inr(p)}{unit}</td></tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   )
 }
-const Pg = ({ children }) => <div className="pg">{children}</div>
-
-/*
-  Har leaf = [cover-class, front page, back page]  →  1 leaf = 2 pages.
-  Abhi 7 leaves = 14 pages. Aur pages chahiye? Bas ek aur [ '', <Pg>…</Pg>, <Pg>…</Pg> ] add kar do.
-*/
-const LEAVES = [
-  // pages 1-2
-  [
-    'cv',
-    <div className="pg">
-      <small>PHOTOGRAPHY ALBUM</small>
-      <div className="sun" />
-      <h1>Golden<br />Hours</h1>
-      <small>VOL. 01 · 2026</small>
-    </div>,
-    <Pg>
-      <h2>Introduction</h2>
-      <p>An attempt to capture the magic of light — one story in every frame.</p>
-      <Ph k={0} w={17} h={14} r={-3} cap="Sunset, 6:42 pm" />
-    </Pg>,
-  ],
-  // pages 3-4
-  [
-    '',
-    <Pg><Ph k={1} w={23} h={17} r={-1.5} cap="First light" /><p>Dawn · Nashik</p></Pg>,
-    <Pg><Ph k={2} w={16} h={11} r={3} cap="Blue hour" /><Ph k={3} w={16} h={11} r={-2.5} cap="Fields in sunlight" /></Pg>,
-  ],
-  // pages 5-6
-  [
-    '',
-    <Pg>
-      <div className="grid">
-        <Ph k={4} w={11.5} h={9} r={-2} /><Ph k={5} w={11.5} h={9} r={2} />
-        <Ph k={6} w={11.5} h={9} r={1.5} /><Ph k={2} w={11.5} h={9} r={-1.5} />
-      </div>
-    </Pg>,
-    <Pg><Ph k={1} w={19} h={26} r={2} cap="Golden hour" /></Pg>,
-  ],
-  // pages 7-8
-  [
-    '',
-    <Pg><Ph k={3} w={20} h={13} r={-2} cap="Golden evening" /><Ph k={5} w={15} h={10} r={3} cap="By the sea" /></Pg>,
-    <Pg><blockquote>“Every photograph is a memory that time tried to take away.”</blockquote></Pg>,
-  ],
-  // pages 9-10
-  [
-    '',
-    <Pg><small>CHAPTER 02</small><h2>Blue Hour</h2><Ph k={4} w={22} h={15} r={-1.5} cap="The colour before night" /></Pg>,
-    <Pg><Ph k={2} w={14} h={9} r={2} /><Ph k={4} w={14} h={9} r={-2} /><Ph k={6} w={14} h={9} r={1.5} /></Pg>,
-  ],
-  // pages 11-12
-  [
-    '',
-    <Pg><Ph k={5} w={23} h={12} r={-1} cap="The shoreline" /><p>The sound of waves and a setting sun.</p><Ph k={3} w={14} h={9} r={2} /></Pg>,
-    <Pg><Ph k={0} w={18} h={22} r={-2} cap="A quiet evening" /><p>Some frames are simply felt.</p></Pg>,
-  ],
-  // pages 13-14
-  [
-    '',
-    <Pg><Ph k={6} w={23} h={18} r={1.5} cap="Last light" /><p>The light fades, the memories remain.</p></Pg>,
-    <Pg><div className="sun sm" /><h2>Thank You</h2><p>More stories coming soon.</p></Pg>,
-  ],
-]
-const N = LEAVES.length
-const TOTAL_PAGES = N * 2
 
 export default function Album() {
-  const [idx, setIdx] = useState(0)
-  const [moving, setMoving] = useState(-1)
-  const auto = useRef(true)
-  const mvT = useRef(0)
-  const tiltRef = useRef(null)
-  const secRef = useRef(null)
-  const dust = useMemo(
-    () => Array.from({ length: 22 }, () => ({
-      left: Math.random() * 100, top: 55 + Math.random() * 45,
-      x: Math.random() * 120 - 60, d: 6 + Math.random() * 8, delay: Math.random() * 10,
-    })), [])
+  const [shot, setShot] = useState(0)
+  const [filter, setFilter] = useState('All')
+  const [open, setOpen] = useState(null)
 
-  const go = (d) => {
-    setIdx((cur) => {
-      const nx = Math.max(0, Math.min(N, cur + d))
-      if (nx !== cur) {
-        setMoving(d > 0 ? cur : cur - 1)
-        clearTimeout(mvT.current)
-        mvT.current = setTimeout(() => setMoving(-1), 1300)
-      }
-      return nx
-    })
-  }
-  const user = (d) => { auto.current = false; go(d) }
+  const visible = filter === 'All' ? SPREADS : SPREADS.filter(s => s.cat === filter)
+  const move = useCallback(d => setOpen(i => (i === null ? i : (i + d + visible.length) % visible.length)), [visible.length])
 
-  // autoplay demo: user kuch bhi kare to ruk jata hai (nahi chahiye to is useEffect ko hata do)
-  useEffect(() => {
-    const iv = setInterval(() => { if (auto.current) go(1) }, 2800)
-    const first = setTimeout(() => { if (auto.current) go(1) }, 900)
-    return () => { clearInterval(iv); clearTimeout(first); clearTimeout(mvT.current) }
-  }, [])
+  const styles = STYLES.map(s => ({ ...s, ...priceFromCode(s.code) })).sort((a, b) => b.price - a.price)
+  const P = PRICE_GUIDE
 
-  useEffect(() => {
-    const onKey = (e) => {
-      if (e.key === 'ArrowRight') user(1)
-      if (e.key === 'ArrowLeft') user(-1)
-    }
-    addEventListener('keydown', onKey)
-    return () => removeEventListener('keydown', onKey)
-  }, [])
-
-  const tilt = (x, y) => {
-    if (tiltRef.current) tiltRef.current.style.transform = `rotateX(${14 - y * 10}deg) rotateY(${x * 14}deg)`
-  }
-  useEffect(() => tilt(0, 0), [])
-
-  // poori website pe: screen ke left half me click = pichla page, right half me click = agla page
-  const onPageClick = (e) => {
-    if (e.target.closest('button')) return // prev/next buttons ka apna handler hai
-    user(e.clientX < innerWidth / 2 ? -1 : 1)
-  }
-
-  // mouse move: book tilt + cursor arrow (left/right) dikhao
-  const onPageMove = (e) => {
-    tilt(e.clientX / innerWidth - 0.5, e.clientY / innerHeight - 0.5)
-    if (secRef.current) secRef.current.dataset.side = e.clientX < innerWidth / 2 ? 'l' : 'r'
-  }
-
-  const shift = idx === 0 ? -0.375 : idx === N ? 0.375 : 0
-  const label = idx === 0 ? 'Cover' : idx === N ? 'The End' : `Pages ${idx * 2} – ${idx * 2 + 1}`
-
-  /* data-p = Scene3D ka colour palette (0 orange-pink-purple, 1 cyan-blue-violet, 2 green-teal, 3 amber-orange-rose).
-     Heading + glow isi palette se color lete hain, to camera scene ke saath hamesha match karenge. */
   return (
-    <section className="album-page" data-p="3" ref={secRef}
-      onMouseMove={onPageMove} onClick={onPageClick}>
-      <div className="dust">
-        {dust.map((p, i) => (
-          <span key={i} style={{ left: `${p.left}%`, top: `${p.top}%`, '--x': `${p.x}px`, '--d': `${p.d}s`, animationDelay: `-${p.delay}s` }} />
-        ))}
-      </div>
-
-      <div className="album-head">
-        <div className="eyebrow">Portfolio</div>
-        <h1>My <span className="grad">Album</span></h1>
-        <div className="rule" />
-        <p>A curated collection of timeless moments, beautifully captured. </p>
-      </div>
-
-      <div className="stage">
-        <div className="tilt" ref={tiltRef}>
-          <div className="slide" style={{ transform: `translateX(calc(var(--H) * ${shift}))` }}>
-            <div className="shadow" />
-            <div className="book">
-              <div className="base" />
-              {LEAVES.map(([cls, front, back], i) => {
-                const flipped = i < idx
-                const z = moving === i ? 100 : flipped ? i + 1 : N - i
-                return (
-                  <div key={i} className={`leaf${flipped ? ' f' : ''}${moving === i ? ' fl' : ''}`} style={{ zIndex: z }}>
-                    <div className={`face ${cls}`}>
-                      {front}
-                      {i > 0 && <em className="pn r">{i * 2 + 1}</em>}
-                    </div>
-                    <div className="face b">
-                      {back}
-                      <em className="pn l">{i * 2 + 2}</em>
-                    </div>
-                  </div>
-                )
-              })}
-            </div>
+    <div className="ab">
+      {/* ---------- Intro ---------- */}
+      <section className="sec ab-hero">
+        <div className="rv">
+          <div className="eyebrow">{ALBUM_INTRO.eyebrow}</div>
+          <h1>Albums made to be <span className="gt">held</span>, not just viewed.</h1>
+          <p className="sub">{ALBUM_INTRO.sub}</p>
+          <div className="btns">
+            <a className="pill" href="#signature">The Signature Set</a>
+            <a className="pill ghost" href="#work">Our album work</a>
+            <a className="pill ghost" href="#prices">Price guide</a>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="ui">
-        <button onClick={() => user(-1)} disabled={idx === 0} aria-label="Previous page">‹</button>
-        <span className="lb">{label}</span>
-        <button onClick={() => user(1)} disabled={idx === N} aria-label="Next page">›</button>
-      </div>
-    </section>
+      {/* ---------- Signature set ---------- */}
+      <section className="sec ab-sig" id="signature" aria-labelledby="sig-h">
+        <div className="ab-sig-grid">
+          <div className="ab-sig-media rv">
+            <div className="ab-sig-main">
+              <Picture
+                key={SIGNATURE.images[shot].src}
+                src={SIGNATURE.images[shot].src}
+                alt={SIGNATURE.images[shot].alt}
+                sizes="(min-width: 900px) 48vw, 100vw"
+              />
+            </div>
+            <div className="ab-sig-thumbs" role="group" aria-label="Signature set photos">
+              {SIGNATURE.images.map((im, i) => (
+                <button
+                  key={im.src}
+                  type="button"
+                  aria-pressed={i === shot}
+                  aria-label={`Show photo ${i + 1} of ${SIGNATURE.images.length}`}
+                  onClick={() => setShot(i)}
+                >
+                  <Picture src={im.src} alt="" sizes="120px" />
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="ab-sig-info rv">
+            <span className="ab-badge">{SIGNATURE.badge}</span>
+            <h2 id="sig-h">{SIGNATURE.title}</h2>
+            <p className="ab-sig-blurb">{SIGNATURE.blurb}</p>
+            <div className="ab-sig-price">
+              <b>{inr(SIGNATURE.price)}/-</b>
+              <span>{SIGNATURE.priceNote}</span>
+            </div>
+            <ul className="ab-ticks">
+              {SIGNATURE.includes.map(t => <li key={t}>{t}</li>)}
+            </ul>
+            <div className="btns">
+              <Link className="pill" to="/contact">Book this set</Link>
+              <a
+                className="pill ghost"
+                href={waLink(`Hi ${C.BRAND}, I am interested in the Signature Album Set (${inr(SIGNATURE.price)}). Please share the details.`)}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Ask on WhatsApp
+              </a>
+            </div>
+            <small className="ab-fine">{SIGNATURE.note}</small>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- Album work ---------- */}
+      <section className="sec ab-work" id="work" aria-labelledby="work-h">
+        <div className="head rv">
+          <h2 className="h2s gt" id="work-h">From a real wedding album</h2>
+          <p>Pages from a finished album, designed and printed by us. Tap any page to see it full size.</p>
+        </div>
+
+        <div className="ab-chips" role="group" aria-label="Filter album pages">
+          {SPREAD_FILTERS.map(f => (
+            <button key={f} type="button" aria-pressed={filter === f} onClick={() => { setFilter(f); setOpen(null) }}>{f}</button>
+          ))}
+        </div>
+
+        <ul className="ab-grid" key={filter}>
+          {visible.map((s, i) => (
+            <li key={s.id} className={`ab-item ${s.layout}`} style={{ '--i': i }}>
+              <button type="button" onClick={() => setOpen(i)} aria-label={`View larger: ${s.title}`}>
+                <span className="ab-frame">
+                  <Picture
+                    src={s.src}
+                    alt={s.alt}
+                    sizes={s.layout === 'wide' ? '(min-width: 1200px) 1100px, 92vw' : '(min-width: 900px) 30vw, 92vw'}
+                  />
+                </span>
+                <span className="ab-cap"><b>{s.title}</b><i>{s.cat}</i></span>
+              </button>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* ---------- Cover & box styles ---------- */}
+      <section className="sec ab-styles" id="styles" aria-labelledby="styles-h">
+        <div className="head rv">
+          <h2 className="h2s gt" id="styles-h">Cover &amp; box styles</h2>
+          <p>Pick the finish that suits your story. Each style has a code, and the price is shown on the card.</p>
+        </div>
+        <ul className="ab-style-grid">
+          {styles.map(s => (
+            <li key={s.code} className="ab-style">
+              <div className="ab-style-img">
+                <Picture src={s.src} alt={s.alt} sizes="(min-width: 1100px) 22vw, (min-width: 700px) 45vw, 92vw" />
+              </div>
+              <div className="ab-style-body">
+                <div>
+                  <h3>{s.name}</h3>
+                  <span className="ab-code">Style {s.code}</span>
+                </div>
+                <b className="ab-style-price">{inr(s.price)}</b>
+              </div>
+            </li>
+          ))}
+        </ul>
+        <p className="ab-fine ab-style-note">Prices are per style. Paper sheets and extras are listed below. Courier charges extra, as applicable.</p>
+      </section>
+
+      {/* ---------- Price guide ---------- */}
+      <section className="sec ab-prices" id="prices" aria-labelledby="prices-h">
+        <div className="head rv">
+          <h2 className="h2s gt" id="prices-h">Paper, extras &amp; design: price guide</h2>
+          <p>Build your album your way. Choose a paper, add the finishing touches, and we handle the design.</p>
+        </div>
+        <div className="ab-pgrid">
+          <PriceTable title={P.paper.title} unit={P.paper.unit} rows={P.paper.items} extra={P.paper.extras} />
+          <div className="ab-pstack">
+            <PriceTable title={P.add.title} rows={P.add.items} />
+            <PriceTable title={P.design.title} rows={P.design.items} />
+          </div>
+        </div>
+        <ul className="ab-notes">
+          {P.notes.map(n => <li key={n}>{n}</li>)}
+        </ul>
+      </section>
+
+      {/* ---------- CTA ---------- */}
+      <section className="sec ab-cta">
+        <div className="ab-cta-box rv">
+          <h2>Ready to design your album?</h2>
+          <p>Tell us about your wedding and we will suggest the right album, paper and box.</p>
+          <div className="btns">
+            <Link className="pill" to="/contact">Book a Shoot</Link>
+            <a
+              className="pill ghost"
+              href={waLink(`Hi ${C.BRAND}, I would like to know more about your albums and prices.`)}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              WhatsApp us
+            </a>
+            <a className="pill ghost" href={`tel:${C.CONTACT.call}`}>Call us</a>
+          </div>
+        </div>
+      </section>
+
+      <Lightbox items={visible} index={open} onClose={() => setOpen(null)} onMove={move} />
+    </div>
   )
 }

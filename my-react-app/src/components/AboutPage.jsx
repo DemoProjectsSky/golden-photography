@@ -117,7 +117,7 @@ export default function AboutPage() {
 
       <section className="sec" data-p="2">
         <div className="two">
-          <div className="cr par" ref={storyRef}><Photo img={IMG.aboutPage.story} className="r45" /></div>
+          <div className="cr par" ref={storyRef}><Photo img={IMG.aboutPage.story} className="r45" sizes="(min-width: 900px) 45vw, 100vw" /></div>
           <div className="rv">
             <div className="lbl">{A.story.label}</div>
             <Words text={A.story.title} />
@@ -127,7 +127,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="sec" data-p="3">
+      {!(A.stats.sample && import.meta.env.PROD) && (<section className="sec" data-p="3">
         <div className="stats-row">
           {A.stats.items.map((s, i) => (
             <div className="rv" style={delay(i)} key={s.l}>
@@ -136,7 +136,7 @@ export default function AboutPage() {
           ))}
         </div>
         {A.stats.sample && <small className="note center">Sample figures — replace with your real numbers</small>}
-      </section>
+      </section>)}
 
       <section className="sec" data-p="1">
         <div className="head rv"><h2 className="h2s gt">{A.values.title}</h2><p>{A.values.sub}</p></div>
@@ -153,7 +153,7 @@ export default function AboutPage() {
       </section>
 
       <section className="quote banner" data-p="0">
-        <div className="par" ref={bannerRef}><Photo img={IMG.aboutPage.wide} /></div>
+        <div className="par" ref={bannerRef}><Photo img={IMG.aboutPage.wide} sizes="100vw" /></div>
         <div className="in rv"><h2>{A.banner}</h2></div>
       </section>
 

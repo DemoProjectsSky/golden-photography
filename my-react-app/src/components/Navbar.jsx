@@ -21,16 +21,16 @@ export default function Navbar() {
     (name === 'Contact' && path === '/contact') ||
     (name === 'Home' && loc.pathname === '/' && !loc.hash)
   return (
-    <nav>
+    <nav aria-label="Main">
       <Link className="logo" to="/">{STUDIO}</Link>
-      <div className={'links' + (open ? ' open' : '')}>
+      <div id="nav-links" className={'links' + (open ? ' open' : '')}>
         {LINKS.map(([name, to]) => (
-          <Link key={name} to={to} className={active(name) ? 'active' : ''} onClick={() => setOpen(false)}>{name}</Link>
+          <Link key={name} to={to} className={active(name) ? 'active' : ''} aria-current={active(name) ? 'page' : undefined} onClick={() => setOpen(false)}>{name}</Link>
         ))}
       </div>
       <div className="nav-right">
         <Link className="pill" to="/#book">Book a Shoot</Link>
-        <button className="burger" aria-label="Menu" onClick={() => setOpen(!open)}>{open ? '\u2715' : '\u2630'}</button>
+        <button type="button" className="burger" aria-label="Menu" aria-expanded={open} aria-controls="nav-links" onClick={() => setOpen(!open)}>{open ? '\u2715' : '\u2630'}</button>
       </div>
     </nav>
   )

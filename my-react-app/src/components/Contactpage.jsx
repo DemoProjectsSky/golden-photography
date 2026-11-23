@@ -405,7 +405,8 @@ const EMPTY = {
   phone: '',
   type: TYPES[0],
   date: '',
-  msg: ''
+  msg: '',
+  website: '' // honeypot
 }
 
 export default function ContactPage() {
@@ -531,7 +532,7 @@ Phone: ${f.phone}`
   ]
 
   return (
-    <main className="ctp">
+    <div className="ctp">
       <canvas
         className="ctp-canvas"
         ref={canvasRef}
@@ -586,6 +587,9 @@ Phone: ${f.phone}`
           className="ctp-box rv"
           onSubmit={submit}
         >
+          <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, overflow: 'hidden' }}>
+            <label>Leave this field empty<input tabIndex={-1} autoComplete="off" name="website" value={f.website} onChange={e => setF(p => ({ ...p, website: e.target.value }))} /></label>
+          </div>
           <h2>{P.formTitle}</h2>
 
           <p className="t">{P.formSub}</p>
@@ -703,6 +707,6 @@ Phone: ${f.phone}`
           ))}
         </div>
       </section>
-    </main>
+    </div>
   )
 }

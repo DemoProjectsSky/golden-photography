@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import * as C from '../Content.js'
 import { loadThree, startScene } from "./ServicesScene.js";
+import { WhatsAppIcon } from './Icons.jsx'
 
 // har section ka rang-palette (sirf 3D lights ke liye, boxes/text solid rahenge)
 const PALETTE = [
@@ -47,7 +48,7 @@ function Details({ s, n }) {
             <p className="for"><b>Covers</b> {(s.b || []).join(', ')}</p>
             <div className="acts">
               <a className="lnk" href={`tel:${C.CONTACT.call}`}>Call us</a>
-              <a className="lnk" href={waLink(`Hi, I'd like to know more about ${s.t}.`)} target="_blank" rel="noreferrer">WhatsApp</a>
+              <a className="lnk wa-lnk" href={waLink(`Hi, I'd like to know more about ${s.t}.`)} target="_blank" rel="noreferrer"><WhatsAppIcon size={15} /> WhatsApp</a>
             </div>
           </div>
         </div>
@@ -77,6 +78,11 @@ export default function ServicesPage() {
   const baRef = useRef(null)
   const rawRef = useRef(null)
   const hdRef = useRef(null)
+  const railRef = useRef(null)
+  const nudge = dir => {
+    const r = railRef.current
+    if (r) r.scrollBy({ left: dir * Math.min(r.clientWidth * 0.85, 340), behavior: 'smooth' })
+  }
 
   // 1) scroll tracking: HUD text, dots, 3D lights ka colour, 3D scene
   useEffect(() => {
@@ -189,7 +195,7 @@ export default function ServicesPage() {
   }, [])
 
   return (
-    <main className="svp" ref={rootRef}>
+    <div className="svp" ref={rootRef}>
       <canvas className="svp-canvas" ref={canvasRef} />
       <div className="grain" />
       <div className="vf" ref={vfRef}><i /><i /><i /><i /></div>
@@ -211,6 +217,38 @@ export default function ServicesPage() {
           </div>
         </div>
         <div className="hint">{S.hint}</div>
+      </section>
+
+      {/* Sab services ek ke baad ek, horizontal cards */}
+      <section className="sec rail-sec" id="all" data-n="All services" data-p="1" data-prop="cam">
+        <div className="rv rail-head">
+          <h2>All our services</h2>
+          <p>Scroll sideways, or tap a card for full details.</p>
+        </div>
+        <div className="rail-wrap rv">
+          <button type="button" className="rail-btn prev" aria-label="Previous services" onClick={() => nudge(-1)}>‹</button>
+          <div className="rail" ref={railRef} role="list" tabIndex={0} aria-label="Services">
+            {S.items.map((s, k) => {
+              const priced = s.price && s.price !== 'Price on request'
+              return (
+                <article className="rcard" role="listitem" key={s.t}>
+                  <span className="n">{String(k + 1).padStart(2, '0')}</span>
+                  <h3>{s.t}</h3>
+                  <p className="tg">{s.g}</p>
+                  <p className={`rp${priced ? '' : ' ask'}`}>{s.price}{s.priceNote ? <small>{s.priceNote}</small> : null}</p>
+                  <ul>{(s.hi || []).slice(0, 3).map(x => <li key={x}>{x}</li>)}</ul>
+                  <div className="ra">
+                    <a className="lnk" href={`#s${k}`}>Details</a>
+                    <a className="wa-mini" href={waLink(`Hi, I'd like to know about ${s.t}.`)} target="_blank" rel="noreferrer">
+                      <WhatsAppIcon size={16} /> WhatsApp
+                    </a>
+                  </div>
+                </article>
+              )
+            })}
+          </div>
+          <button type="button" className="rail-btn next" aria-label="Next services" onClick={() => nudge(1)}>›</button>
+        </div>
       </section>
 
       {/* Har service: apna 3D scene + box */}
@@ -298,10 +336,10 @@ export default function ServicesPage() {
           <div className="btns" style={{ justifyContent: 'center' }}>
             <Link className="pill" to="/#book">Book a shoot</Link>
             <a className="lnk" href={`tel:${C.CONTACT.call}`}>Call us</a>
-            <a className="lnk" href={waLink(C.CONTACT.waText)} target="_blank" rel="noreferrer">WhatsApp</a>
+            <a className="lnk wa-lnk" href={waLink(C.CONTACT.waText)} target="_blank" rel="noreferrer"><WhatsAppIcon size={15} /> WhatsApp</a>
           </div>
         </div>
       </section>
-    </main>
+    </div>
   )
 }

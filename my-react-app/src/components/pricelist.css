@@ -1,0 +1,51 @@
+/* sab kuch .price-page ke andar scoped hai. Colours Album ke palette se match karte hain */
+.price-page{
+  --a1:#ff8a5c;--a2:#ff5d8f;--a3:#8b5cf6;--ivory:#f6ecda;
+  position:relative;isolation:isolate;padding:80px 5vw 90px;text-align:center;color:var(--ivory);
+  font-family:Inter,system-ui,sans-serif;overflow:hidden;
+  background:linear-gradient(180deg,#07050b 0%,#0f0a17 50%,#07050c 100%);
+}
+.price-page *{box-sizing:border-box}
+.price-page::before{content:'';position:absolute;inset:-6%;z-index:-1;pointer-events:none;opacity:.22;filter:blur(40px);
+  background:radial-gradient(36% 40% at 12% 30%,var(--a3),transparent 70%),radial-gradient(36% 40% at 88% 60%,var(--a1),transparent 70%)}
+.pl-eyebrow{display:inline-flex;align-items:center;gap:14px;font-size:12px;letter-spacing:.42em;text-transform:uppercase;color:#d2c4e0}
+.pl-eyebrow::before,.pl-eyebrow::after{content:'';width:34px;height:1px;background:linear-gradient(90deg,transparent,var(--a1))}
+.pl-eyebrow::after{transform:scaleX(-1)}
+.pl-head h2{font-family:'Playfair Display',serif;font-size:clamp(30px,5vw,54px);margin:10px 0 8px;color:var(--ivory)}
+.pl-grad{background:linear-gradient(100deg,var(--a1),var(--a2) 55%,var(--a3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.pl-rule{width:64px;height:2px;margin:0 auto 12px;border-radius:2px;background:linear-gradient(90deg,var(--a1),var(--a2),var(--a3))}
+.pl-head p{color:#b9acc6;font-size:15px;margin:0 0 34px}
+
+/* decode block */
+.pl-decode{max-width:760px;margin:0 auto 40px;padding:28px 24px;border-radius:18px;border:1px solid rgba(246,236,218,.14);background:rgba(255,255,255,.03)}
+.pl-code{font:700 clamp(36px,8vw,64px) 'Playfair Display',serif;letter-spacing:.08em}
+.pl-code .a,.pl-decode li .a{color:var(--a1);background:var(--a1)}
+.pl-code .b,.pl-decode li .b{color:var(--a2);background:var(--a2)}
+.pl-code .c,.pl-decode li .c{color:var(--a3);background:var(--a3)}
+.pl-code span{background:none!important}
+.pl-decode ul{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px 26px;justify-content:center;font-size:14px;color:#d2c4e0}
+.pl-decode li{display:flex;align-items:center;gap:8px}
+.pl-decode li i{width:10px;height:10px;border-radius:50%;display:inline-block}
+.pl-eq{margin-top:20px;font-size:18px;color:#d2c4e0}
+.pl-eq b{color:var(--ivory);font-size:24px}
+
+/* cards */
+.pl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;max-width:1000px;margin:0 auto 44px}
+.pl-card{padding:24px 18px;border-radius:16px;border:1px solid rgba(246,236,218,.14);background:rgba(0,0,0,.3);transition:.25s}
+.pl-card:hover{transform:translateY(-4px);border-color:var(--a1)}
+.pl-tag{display:inline-block;padding:5px 14px;border-radius:999px;font-size:12px;letter-spacing:.2em;color:#fff;background:linear-gradient(135deg,var(--a1),var(--a2) 60%,var(--a3))}
+.pl-card h3{font-family:'Playfair Display',serif;font-size:20px;margin:14px 0 4px}
+.pl-card p{margin:0 0 14px;font-size:13px;color:#b9acc6}
+.pl-calc{font-size:13px;color:#8d7fa0}
+.pl-price{font:700 28px 'Playfair Display',serif;color:var(--ivory)}
+
+/* checker */
+.pl-check{max-width:420px;margin:0 auto}
+.pl-check label{display:block;font-size:12px;letter-spacing:.25em;text-transform:uppercase;color:#d2c4e0;margin-bottom:10px}
+.pl-check input{width:100%;padding:13px 18px;border-radius:999px;border:1px solid rgba(246,236,218,.28);background:rgba(0,0,0,.4);color:var(--ivory);font:500 16px Inter,sans-serif;text-align:center;text-transform:uppercase;letter-spacing:.12em;outline:none}
+.pl-check input:focus{border-color:var(--a1)}
+.pl-out{margin-top:14px;min-height:24px;font-size:15px}
+.pl-out .dim{color:#8d7fa0}
+.pl-out b{font-size:20px}
+
+@media(max-width:600px){.price-page{padding:60px 5vw 70px}}
