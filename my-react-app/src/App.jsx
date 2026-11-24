@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useState } from 'react'
+import { lazy, Suspense, useEffect, useRef, useState } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar.jsx'
 import Footer from './components/Footer.jsx'
@@ -97,7 +97,12 @@ export default function App() {
   }, [loc.pathname])
 
   // On page change: scroll to the hash target if there is one, otherwise to the top.
+  const prevLoc = useRef(loc)
   useEffect(() => {
+    const prev = prevLoc.current
+    prevLoc.current = loc
+    // sirf ?service=... badla (details popup khula/band) to scroll jagah par hi rahe
+    if (prev !== loc && prev.pathname === loc.pathname && prev.search !== loc.search && !loc.hash) return
     const el = loc.hash && document.querySelector(loc.hash)
     if (el) setTimeout(() => el.scrollIntoView({ behavior: 'smooth' }), 60)
     else {

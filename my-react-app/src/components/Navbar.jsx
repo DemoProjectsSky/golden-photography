@@ -29,7 +29,7 @@ export default function Navbar() {
         ))}
       </div>
       <div className="nav-right">
-        <Link className="pill" to="/#book">Book a Shoot</Link>
+        <Link className="pill" to="/contact">Book a Shoot</Link>
         <button type="button" className="burger" aria-label="Menu" aria-expanded={open} aria-controls="nav-links" onClick={() => setOpen(!open)}>{open ? '\u2715' : '\u2630'}</button>
       </div>
     </nav>

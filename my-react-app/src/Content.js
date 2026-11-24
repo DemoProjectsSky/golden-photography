@@ -265,33 +265,6 @@ export const SERVICES_PAGE = {
       i: ['Product and lifestyle photography', 'Short ad films and promo reels', 'Editing and colour grading', 'Formats for social media and print'],
       b: ['Product shoots', 'Brand films', 'Social media ads', 'Promos'] },
   ],
-  pricing: {
-    title: 'Packages and rates',
-    sub: 'A simple starting point. Rates are per day unless noted, and we can mix and match for your event.',
-    base: {
-      title: 'Basic package',
-      items: [
-        { t: 'Traditional photos', v: '₹3,500 / day' },
-        { t: 'Traditional video', v: '₹4,500 / day' },
-        { t: 'Reels (2+ reels)', v: '₹3,000 / day' },
-        { t: 'Album: 20 sheets, 90 to 110 photos', v: '₹6,000' },
-        { t: 'Google Drive access (lifetime, photos only)', v: 'Included' },
-        { t: 'Original 64GB pendrive', v: '₹1,000' },
-      ],
-      totalLabel: 'Package total',
-      total: '₹17,800',
-    },
-    options: {
-      title: 'Add-on options',
-      items: [
-        { t: 'Candid photos', v: '₹5,000 / day' },
-        { t: 'Cinematic highlight (3 to 4 min video + 1 reel)', v: '₹8,000 / day' },
-        { t: 'Drone', v: '₹5,000 / day' },
-        { t: 'FPV drone', v: '₹7,000 / day' },
-      ],
-    },
-    note: 'Rates may change with location, number of days and customisation. Message us for a quote.',
-  },
   edit: {
     title: 'Raw on the left, finished on the right.',
     sub: 'Drag the slider. We fix colour, balance the exposure and clean up skin. We do not overdo it.',

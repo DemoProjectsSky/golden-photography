@@ -1,8 +1,10 @@
-import { useEffect, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useCallback, useEffect, useRef } from 'react'
+import { Link, useSearchParams } from 'react-router-dom'
 import * as C from '../Content.js'
 import { loadThree, startScene } from "./ServicesScene.js";
 import { WhatsAppIcon } from './Icons.jsx'
+import ServiceModal from './ServiceModal.jsx'
+import { serviceSlug } from '../serviceSlug.js'
 
 // har section ka rang-palette (sirf 3D lights ke liye, boxes/text solid rahenge)
 const PALETTE = [
@@ -16,60 +18,12 @@ const toHex = c => '#' + c.map(v => Math.round(v).toString(16).padStart(2, '0'))
 
 const waLink = text => `https://wa.me/${C.CONTACT.whatsapp}?text=${encodeURIComponent(text)}`
 
-// Pehle thodi details hamesha dikhti hain; "More details" click par baaki khulti hain
-function Details({ s, n }) {
-  const [open, setOpen] = useState(false)
-  const panelId = `svp-dt-${n}`
-  const hasPrice = s.price && s.price !== 'Price on request'
-  return (
-    <div className={`dt${open ? ' open' : ''}`}>
-      {s.price && (
-        <p className={`price${hasPrice ? '' : ' ask'}`}>
-          <b>{s.price}</b>
-          {s.priceNote && <span>{s.priceNote}</span>}
-        </p>
-      )}
-      <p>{s.d}</p>
-      <ul>{(s.hi || s.i || []).map(x => <li key={x}>{x}</li>)}</ul>
-      <div className="row">
-        <a className="pill" href={waLink(`Hi, I'd like to book ${s.t}.`)} target="_blank" rel="noreferrer">
-          {hasPrice ? 'Book this service' : 'Get a quote'}
-        </a>
-        <button type="button" className="more" aria-expanded={open} aria-controls={panelId} onClick={() => setOpen(!open)}>
-          {open ? 'Less details' : 'More details'}<i aria-hidden="true" />
-        </button>
-      </div>
-      <div className="dt-panel" id={panelId}>
-        <div className="dt-in">
-          <div className="dt-body">
-            {s.more && <p>{s.more}</p>}
-            <h4>What you get</h4>
-            <ul>{(s.i || []).map(x => <li key={x}>{x}</li>)}</ul>
-            <p className="for"><b>Covers</b> {(s.b || []).join(', ')}</p>
-            <div className="acts">
-              <a className="lnk" href={`tel:${C.CONTACT.call}`}>Call us</a>
-              <a className="lnk wa-lnk" href={waLink(`Hi, I'd like to know more about ${s.t}.`)} target="_blank" rel="noreferrer"><WhatsAppIcon size={15} /> WhatsApp</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
-
-function Rows({ items }) {
-  return (
-    <ul className="pk-rows">
-      {items.map(r => (
-        <li key={r.t}><span>{r.t}</span><b>{r.v}</b></li>
-      ))}
-    </ul>
-  )
-}
-
 export default function ServicesPage() {
   const S = C.SERVICES_PAGE
-  const P = S.pricing
+  const [sp, setSp] = useSearchParams()
+  const sel = S.items.find(x => serviceSlug(x.t) === sp.get('service'))
+  const openService = x => setSp({ service: serviceSlug(x.t) })
+  const closeService = useCallback(() => setSp({}, { replace: true }), [setSp])
   const rootRef = useRef(null)
   const canvasRef = useRef(null)
   const hudRef = useRef(null)
@@ -78,11 +32,6 @@ export default function ServicesPage() {
   const baRef = useRef(null)
   const rawRef = useRef(null)
   const hdRef = useRef(null)
-  const railRef = useRef(null)
-  const nudge = dir => {
-    const r = railRef.current
-    if (r) r.scrollBy({ left: dir * Math.min(r.clientWidth * 0.85, 340), behavior: 'smooth' })
-  }
 
   // 1) scroll tracking: HUD text, dots, 3D lights ka colour, 3D scene
   useEffect(() => {
@@ -164,33 +113,74 @@ export default function ServicesPage() {
 
   // 3) viewfinder cursor + shutter flash (sirf mouse par)
   useEffect(() => {
-    const vf = vfRef.current, fl = flRef.current
-    let tm = 0
+    const root = rootRef.current, vf = vfRef.current, fl = flRef.current
+    let tm = 0, cursorRaf = 0
+    let targetX = 0, targetY = 0, cursorX = 0, cursorY = 0
+
+    const hideCursor = () => {
+      document.body.classList.remove('vfo')
+      vf.classList.remove('lock', 'click')
+      cancelAnimationFrame(cursorRaf)
+      cursorRaf = 0
+    }
+    const follow = () => {
+      cursorX += (targetX - cursorX) * .24
+      cursorY += (targetY - cursorY) * .24
+      vf.style.left = `${cursorX - 30}px`
+      vf.style.top = `${cursorY - 30}px`
+      vf.style.width = '60px'
+      vf.style.height = '60px'
+      if (Math.abs(targetX - cursorX) > .1 || Math.abs(targetY - cursorY) > .1) {
+        cursorRaf = requestAnimationFrame(follow)
+      } else cursorRaf = 0
+    }
     const pm = e => {
-      if (e.pointerType !== 'mouse') return
+      if (e.pointerType !== 'mouse' || !root?.contains(e.target)) {
+        hideCursor()
+        return
+      }
       document.body.classList.add('vfo')
-      const t = e.target.closest && e.target.closest('a,button,.pill')
+      const t = e.target.closest?.('a,button,input,textarea,select,[role="button"],.ba,.rcard')
       if (t) {
+        cancelAnimationFrame(cursorRaf)
+        cursorRaf = 0
         const r = t.getBoundingClientRect()
         vf.style.cssText = `left:${r.left - 8}px;top:${r.top - 8}px;width:${r.width + 16}px;height:${r.height + 16}px`
         vf.classList.add('lock')
       } else {
-        vf.style.cssText = `left:${e.clientX - 30}px;top:${e.clientY - 30}px;width:60px;height:60px`
         vf.classList.remove('lock')
+        targetX = e.clientX
+        targetY = e.clientY
+        if (!cursorRaf) {
+          cursorX = cursorX || targetX
+          cursorY = cursorY || targetY
+          cursorRaf = requestAnimationFrame(follow)
+        }
       }
     }
-    const pd = () => {
+    const pd = e => {
+      if (e.pointerType !== 'mouse' || !root?.contains(e.target)) return
+      vf.classList.add('click')
       fl.classList.add('go')
       clearTimeout(tm)
-      tm = setTimeout(() => fl.classList.remove('go'), 160)
+      tm = setTimeout(() => {
+        vf.classList.remove('click')
+        fl.classList.remove('go')
+      }, 160)
+    }
+    const pl = e => {
+      if (e.pointerType === 'mouse') hideCursor()
     }
     addEventListener('pointermove', pm)
     addEventListener('pointerdown', pd)
+    root?.addEventListener('pointerleave', pl)
     return () => {
       removeEventListener('pointermove', pm)
       removeEventListener('pointerdown', pd)
+      root?.removeEventListener('pointerleave', pl)
+      cancelAnimationFrame(cursorRaf)
       clearTimeout(tm)
-      document.body.classList.remove('vfo')
+      hideCursor()
     }
   }, [])
 
@@ -200,10 +190,9 @@ export default function ServicesPage() {
       <div className="grain" />
       <div className="vf" ref={vfRef}><i /><i /><i /><i /></div>
       <div className="fl" ref={flRef} />
-      <div className="dots">
-        {S.items.map((s, k) => <a href={`#s${k}`} key={s.t} aria-label={s.t}><span>{s.t}</span></a>)}
-      </div>
       <div className="hud"><span ref={hudRef} /></div>
+
+      {sel && <ServiceModal s={sel} onClose={closeService} />}
 
       {/* Intro */}
       <section id="top" data-n="Intro" data-p="0" data-prop="cam" data-cx="2.5" data-cy="0" data-cs="1" data-cz="0">
@@ -211,23 +200,17 @@ export default function ServicesPage() {
           <h1>{S.title}</h1>
           <p className="sub">{S.sub}</p>
           <div className="btns">
-            <a className="pill" href="#s0">See our services</a>
-            <a className="lnk" href="#pricing">See rates</a>
-            <Link className="lnk" to="/#book">Book a shoot</Link>
+            <a className="pill" href="#all">See our services</a>
+            <Link className="lnk" to="/contact">Book a shoot</Link>
           </div>
         </div>
         <div className="hint">{S.hint}</div>
       </section>
 
       {/* Sab services ek ke baad ek, horizontal cards */}
-      <section className="sec rail-sec" id="all" data-n="All services" data-p="1" data-prop="cam">
-        <div className="rv rail-head">
-          <h2>All our services</h2>
-          <p>Scroll sideways, or tap a card for full details.</p>
-        </div>
+      <section className="sec rail-sec" id="all" data-n="Services" data-p="1" data-prop="cam">
         <div className="rail-wrap rv">
-          <button type="button" className="rail-btn prev" aria-label="Previous services" onClick={() => nudge(-1)}>‹</button>
-          <div className="rail" ref={railRef} role="list" tabIndex={0} aria-label="Services">
+          <div className="rail" role="list" aria-label="Services">
             {S.items.map((s, k) => {
               const priced = s.price && s.price !== 'Price on request'
               return (
@@ -238,7 +221,7 @@ export default function ServicesPage() {
                   <p className={`rp${priced ? '' : ' ask'}`}>{s.price}{s.priceNote ? <small>{s.priceNote}</small> : null}</p>
                   <ul>{(s.hi || []).slice(0, 3).map(x => <li key={x}>{x}</li>)}</ul>
                   <div className="ra">
-                    <a className="lnk" href={`#s${k}`}>Details</a>
+                    <button type="button" className="lnk dbtn" onClick={() => openService(s)}>Details</button>
                     <a className="wa-mini" href={waLink(`Hi, I'd like to know about ${s.t}.`)} target="_blank" rel="noreferrer">
                       <WhatsAppIcon size={16} /> WhatsApp
                     </a>
@@ -247,54 +230,6 @@ export default function ServicesPage() {
               )
             })}
           </div>
-          <button type="button" className="rail-btn next" aria-label="Next services" onClick={() => nudge(1)}>›</button>
-        </div>
-      </section>
-
-      {/* Har service: apna 3D scene + box */}
-      {S.items.map((s, k) => (
-        <section
-          className={`svc ${k % 2 ? 'R' : 'L'}`}
-          id={`s${k}`}
-          key={s.t}
-          data-k={k}
-          data-n={s.t}
-          data-p={k % 4}
-          data-prop={s.p}
-          data-cx={k % 2 ? -2.6 : 2.6}
-          data-cy="0"
-          data-cs="1"
-          data-cz="0"
-        >
-          <div className="box rv">
-            <h2>{s.t}</h2>
-            <p className="tag">{s.g}</p>
-            <Details s={s} n={k} />
-          </div>
-        </section>
-      ))}
-
-      {/* Pricing: basic package + add-on options */}
-      <section className="sec center pk" id="pricing" data-n="Rates" data-p="1" data-prop="cam">
-        <div className="rv" style={{ marginBottom: 32 }}>
-          <h2>{P.title}</h2>
-          <p style={{ maxWidth: 480, margin: '10px auto 0' }}>{P.sub}</p>
-        </div>
-        <div className="pk-grid rv">
-          <div className="pk-card">
-            <h3>{P.base.title}</h3>
-            <Rows items={P.base.items} />
-            <p className="pk-total"><span>{P.base.totalLabel}</span><b>{P.base.total}</b></p>
-          </div>
-          <div className="pk-card">
-            <h3>{P.options.title}</h3>
-            <Rows items={P.options.items} />
-          </div>
-        </div>
-        <p className="rv fine">{P.note}</p>
-        <div className="btns rv" style={{ justifyContent: 'center', marginTop: 22 }}>
-          <a className="pill" href={waLink("Hi, I'd like a quote for my event.")} target="_blank" rel="noreferrer">Get a quote on WhatsApp</a>
-          <a className="lnk" href={`tel:${C.CONTACT.call}`}>Call us</a>
         </div>
       </section>
 
@@ -334,7 +269,7 @@ export default function ServicesPage() {
           <h2>Not sure which service you need?</h2>
           <p style={{ maxWidth: 440, margin: '12px auto 26px' }}>Tell us the occasion and the date. We'll tell you what we'd recommend.</p>
           <div className="btns" style={{ justifyContent: 'center' }}>
-            <Link className="pill" to="/#book">Book a shoot</Link>
+            <Link className="pill" to="/contact">Book a shoot</Link>
             <a className="lnk" href={`tel:${C.CONTACT.call}`}>Call us</a>
             <a className="lnk wa-lnk" href={waLink(C.CONTACT.waText)} target="_blank" rel="noreferrer"><WhatsAppIcon size={15} /> WhatsApp</a>
           </div>

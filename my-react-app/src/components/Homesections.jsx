@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { IMG } from '../images.js'
 import Picture from './Picture.jsx'
 import * as C from '../Content.js'
+import { serviceSlug } from '../serviceSlug.js'
 
 export const tilt = e => {
   const el = e.currentTarget, r = el.getBoundingClientRect()
@@ -82,7 +83,7 @@ export function Services() {
   return (
     <section className="sec" id="services" data-p="1">
       <div className="head rv"><h2 className="h2s gt">{C.SERVICES.title}</h2><p>{C.SERVICES.sub}</p></div>
-      <div className="hrail rv" role="list" tabIndex={0} aria-label="Featured services">
+      <div className="hrail rv" role="list" aria-label="Featured services">
         {picks.map(k => {
           const s = all[k]
           const priced = s.price && s.price !== 'Price on request'
@@ -93,7 +94,7 @@ export function Services() {
               <p className="tg">{s.g}</p>
               <p>{s.d}</p>
               <p className={`hp${priced ? '' : ' ask'}`}>{s.price}</p>
-              <Link to={`/servicespage#s${k}`}>View details →</Link>
+              <Link to={`/servicespage?service=${serviceSlug(s.t)}`}>View details →</Link>
             </article>
           )
         })}
